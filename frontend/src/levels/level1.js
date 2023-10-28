@@ -7,6 +7,7 @@ class level1 extends Phaser.Scene
                 this.load.image('sky', 'assets/skies/space3.png');
                 this.load.image('logo', 'assets/sprites/phaser3-logo.png');
                 this.load.image('red', 'assets/particles/red.png');
+
             }
     
             create ()
@@ -33,10 +34,10 @@ class level1 extends Phaser.Scene
             type: Phaser.AUTO,
 
             scale: {
-                mode: Phaser.Scale.FIT,
-                autoCenter: Phaser.Scale.CENTER_BOTH,
-                width: 800,
-                height: 600,
+                // mode: Phaser.Scale.FIT,
+                // autoCenter: Phaser.Scale.CENTER_BOTH,
+                width: 1920,
+                height: 1080,
             },
             
             scene: [scene1],

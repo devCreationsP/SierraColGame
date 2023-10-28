@@ -5,12 +5,34 @@ class scene1 extends Phaser.Scene {
     }
  
     preload () {
-        this.load.image("Background","./src/assets/Background.png"); // decimos donde esta la imagen a phaser
-        this.load.image("Floor", "./src/assets/floor.png");
-        this.load.spritesheet("Player" , "./src/assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
-    }
+        this.load.image("piso", "./assets/floor.png");
+        this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
+
+
+        // tiled
+        // se cargan las imagenes con las cuales se realiza el proyecto en tiled
+        this.load.image('Floor' , "./assets/Fondo/Recurso2.png")
+        this.load.image('Pared' , "./assets/Fondo/Pared.png")
+        // se exporta el mapa creado en tiled y se lo importa al archivo pisoBackground.json    
+        this.load.tilemapTiledJSON('tilemap', "./assets/pisoBackground.json")
+        }
 
     create () {
+
+        //En la carpeta assets está el proyecto de tiled con la extensión .tmx, de ahí se obtienen los nombres
+        
+        var map = this.make.tilemap({key: 'tilemap'}) // se crea el mapa como objeto, y se lo guarda en la variable map
+        // se mapea los datos del objeto map mediante el metodo addTilesetImage
+        // Los parametros se establecen con (Nombre de conjunto de patron en el software tiled, Nombre que se le asigna en el preload a la imagen )
+        var tileset = map.addTilesetImage('PisoBackground', "Floor") 
+        var piso = map.createLayer("PisoTiled" , tileset) // Se crea el piso, con el nombre de la capa asignada en tiled, "PisoTiled"
+        piso.setCollisionByProperty({colision:true}) // Se activa la propiedad que brindamos a los bloques en tiled
+        
+
+        // creación de pareces
+        var tileset2 = map.addTilesetImage('ParedBackground', "Pared")
+        var pared = map.createLayer("ParedTiled" , tileset2)
+        
 
         //animation
         this.anims.create({
@@ -27,17 +49,15 @@ class scene1 extends Phaser.Scene {
             repeat:-1
         });
 
-        //background
-        var fondo = this.add.image(400,300,"Background"); // agregamos el fondo a la escena
-        fondo.setScale(1.9);//escalamos el fondo 
 
-        //Floor
+
+        // Floor
         floor = this.physics.add.staticGroup()
-        floor.create(200, 500, "Floor").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
-        floor.create(500, 400, "Floor").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
-        floor.create(150, 250, "Floor").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
-        floor.create(600, 100, "Floor").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
-        floor.create(85, 575, "Floor").setScale(80,1.5).setSize(800,45).setOffset(-75,-10)
+        // floor.create(200, 800, "piso").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
+        floor.create(500, 700, "piso").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
+        floor.create(150, 600, "piso").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
+        // floor.create(600, 100, "piso").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
+        // floor.create(85, 575, "piso").setScale(80,1.5).setSize(800,45).setOffset(-75,-10)
 
         //player
         player = this.physics.add.sprite(250, 380, "Player")
@@ -50,12 +70,13 @@ class scene1 extends Phaser.Scene {
         // collision
 
         this.physics.add.collider(floor, player)
+        this.physics.add.collider(player, piso)
     }
 
     update () {
 
         if(cursors.right.isDown){
-            player.setVelocityX(300) // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+            player.setVelocityX(100) // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
             player.anims.play("caminar", true);
             player.setOffset(7,14);
             if(player.flipX==true) {
