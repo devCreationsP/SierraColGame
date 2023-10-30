@@ -1,0 +1,112 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "BackgroundScene1.tmx",
+    "automapping.whileDrawing": false,
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "#Luces": {
+            "scaleInEditor": 1
+        },
+        "BackgroundScene1.tmx": {
+            "scale": 2,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 3490.75,
+                "y": 681.25
+            }
+        },
+        "BackgroundScene1.tmx#BackgroundAgua": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundArchivo": {
+            "scaleInDock": 0.33
+        },
+        "BackgroundScene1.tmx#BackgroundArchivo2": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundBasura": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundColumnas": {
+            "scaleInDock": 0.12
+        },
+        "BackgroundScene1.tmx#BackgroundEscritorio": {
+            "scaleInDock": 0.33
+        },
+        "BackgroundScene1.tmx#BackgroundEstante": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundImpresora": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundLuces": {
+            "scaleInDock": 0.25
+        },
+        "BackgroundScene1.tmx#BackgroundPared": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundPiso": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 1
+        },
+        "BackgroundScene1.tmx#BackgroundPizarra": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundPlanta": {
+            "scaleInDock": 0.25
+        },
+        "BackgroundScene1.tmx#BackgroundPlanta2": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundReloj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "BackgroundScene1.tmx#BackgroundSillon1": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundSillon2": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundTecho": {
+            "scaleInDock": 0.25
+        },
+        "BackgroundScene1.tmx#BackgroundVentana1": {
+            "scaleInDock": 0.33
+        },
+        "BackgroundScene1.tmx#BackgroundVentana2": {
+            "scaleInDock": 0.25
+        },
+        "BackgroundScene1.tmx#BackgroundVentana3": {
+            "scaleInDock": 0.25
+        },
+        "BackgroundScene1.tmx#BackgroundVentana4": {
+            "scaleInDock": 0.125
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Nahu/Desktop/SierraColGame/SierraColGame/frontend/assets",
+    "last.imagePath": "C:/Users/Nahu/Desktop/SierraColGame/SierraColGame/frontend/assets/Objetos",
+    "map.height": 32,
+    "map.lastUsedExportFilter": "Todos los archivos (*)",
+    "map.lastUsedFormat": "tmx",
+    "map.width": 60,
+    "openFiles": [
+        "BackgroundScene1.tmx"
+    ],
+    "project": "background.tmx.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "BackgroundScene1.tmx"
+    ],
+    "resizeMap.removeObjects": true,
+    "tileset.embedInMap": true
+}
