@@ -1,7 +1,7 @@
-class scene1 extends Phaser.Scene {
+export class scene1 extends Phaser.Scene {
 
     constructor () {
-        super ("scene1"); // nombre escena
+        super ({ key: 'scene1' }); // nombre escena
     }
  
     preload () {
@@ -137,7 +137,7 @@ class scene1 extends Phaser.Scene {
 
 
         // Floor
-        floor = this.physics.add.staticGroup()
+        this.floor = this.physics.add.staticGroup()
         // floor.create(200, 800, "piso").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
         // floor.create(500, 700, "piso").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
         // floor.create(150, 600, "piso").setScale(6,1.5).setSize(185,45).setOffset(-75,-5)
@@ -145,10 +145,10 @@ class scene1 extends Phaser.Scene {
         // floor.create(85, 575, "piso").setScale(80,1.5).setSize(800,45).setOffset(-75,-10)
 
         //player
-        player = this.physics.add.sprite(250, 380, "Player")
-        player.setScale(3).setSize(16,36).setOffset(7,14)
-        player.setCollideWorldBounds(true);
-        this.cameras.main.startFollow(player, {
+        this.player = this.physics.add.sprite(500, 900, "Player")
+        this.player.setScale(3).setSize(16,36).setOffset(7,14)
+        this.player.setCollideWorldBounds(true);
+        this.cameras.main.startFollow(this.player, {
             // Propiedades de configuración de seguimiento
             centerOnX: true,
             centerOnY: true,
@@ -156,41 +156,44 @@ class scene1 extends Phaser.Scene {
         });
 
         //moving
-        cursors = this.input.keyboard.createCursorKeys();
+        this.cursors = this.input.keyboard.createCursorKeys();
 
         // collision
 
-        this.physics.add.collider(floor, player)
-        this.physics.add.collider(player, piso)
+        this.physics.add.collider(this.floor, this.player)
+        this.physics.add.collider(this.player, piso)
     }
 
     update () {
 
-        if(cursors.right.isDown){
-            player.setVelocityX(300) // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
-            player.anims.play("caminar", true);
-            player.setOffset(7,14);
-            if(player.flipX==true) {
-                player.x=player.x+55
-            }
-            player.flipX=false;
-        }
-        else if(cursors.left.isDown) {
-            player.setVelocityX(-100) // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
-            player.anims.play("caminar", true);
-            player.setOffset(26,14);
-            if(player.flipX==false) {
-                player.x=player.x-55
-            }
-            player.flipX=true // Reflejar la imagen hacia el lado izquierdo
-        }
-        else {
-            player.setVelocityX(0); // No hay tecla presionada, la velocidad del pesonaje es 0 sobre el eje X
-            player.anims.play("detenido", true);
-        }
-        if( cursors.up.isDown && player.body.touching){
-            player.setVelocityY(-100);
-        }
-    }   
+        this.player.setVelocityX(20);
+        this.player.anims.play("caminar", true);
+
+    //     if(cursors.right.isDown){
+    //          // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+    //         player.anims.play("caminar", true);
+    //         player.setOffset(7,14);
+    //         if(player.flipX==true) {
+    //             player.x=player.x+55
+    //         }
+    //         player.flipX=false;
+    //     }
+    //     else if(cursors.left.isDown) {
+    //         player.setVelocityX(-100) // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+    //         player.anims.play("caminar", true);
+    //         player.setOffset(26,14);
+    //         if(player.flipX==false) {
+    //             player.x=player.x-55
+    //         }
+    //         player.flipX=true // Reflejar la imagen hacia el lado izquierdo
+    //     }
+    //     // else {
+    //     //     player.setVelocityX(0); // No hay tecla presionada, la velocidad del pesonaje es 0 sobre el eje X
+    //     //     player.anims.play("detenido", true);
+    //     // }
+    //      if( cursors.up.isDown && this.player.body.touching){
+    //          this.player.setVelocityY(-100);
+    //      }
+      }   
 
 }
