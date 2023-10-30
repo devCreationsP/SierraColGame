@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="60" height="32" tilewidth="32" tileheight="32" infinite="1" nextlayerid="35" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="60" height="32" tilewidth="32" tileheight="32" infinite="1" nextlayerid="36" nextobjectid="1">
  <editorsettings>
   <export target="Background.json" format="json"/>
  </editorsettings>
@@ -10,592 +10,592 @@
   <image source="Fondo/Recurso2.png" width="1910" height="149"/>
   <tile id="0">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="1">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="2">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="3">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="4">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="5">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="6">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="7">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="8">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="9">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="10">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="11">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="12">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="13">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="14">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="15">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="16">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="17">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="18">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="19">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="20">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="21">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="22">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="23">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="24">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="25">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="26">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="27">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="28">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="29">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="30">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="31">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="32">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="33">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="34">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="35">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="36">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="37">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="38">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="39">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="40">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="41">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="42">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="43">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="44">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="45">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="46">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="47">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="48">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="49">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="50">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="51">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="52">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="53">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="54">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="55">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="56">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="57">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="58">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="59">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="60">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="61">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="62">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="63">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="64">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="65">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="66">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="67">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="68">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="69">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="70">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="71">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="72">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="73">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="74">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="75">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="76">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="77">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="78">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="79">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="80">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="81">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="82">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="83">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="84">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="85">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="86">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="87">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="88">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="89">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="90">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="91">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="92">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="93">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="94">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="95">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="96">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="97">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="98">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="99">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="100">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="101">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="102">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="103">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="104">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="105">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="106">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="107">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="108">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="109">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="110">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="111">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="112">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="113">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="114">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="115">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="116">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="117">
    <properties>
-    <property name="colision" type="bool" value="true"/>
+    <property name="colision" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="118">
@@ -1249,6 +1249,208 @@
  <tileset firstgid="3714" name="BackgroundPlanta2" tilewidth="32" tileheight="32" tilecount="15" columns="3">
   <image source="Objetos/Recurso23.png" width="116" height="183"/>
  </tileset>
+ <layer id="35" name="Piso" width="60" height="32">
+  <data encoding="csv">
+   <chunk x="0" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,
+451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,
+510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,
+569,570,571,572,573,574,575,576,577,578,579,580,581,582,583,584
+</chunk>
+   <chunk x="16" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,
+467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,
+526,527,528,529,530,531,532,533,534,535,536,537,538,539,540,541,
+585,586,587,588,589,590,591,592,593,594,595,596,597,598,599,600
+</chunk>
+   <chunk x="32" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,
+483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,
+542,543,544,545,546,547,548,549,550,551,552,553,554,555,556,557,
+601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616
+</chunk>
+   <chunk x="48" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+440,441,442,443,444,445,446,447,448,449,450,392,393,394,395,396,
+499,500,501,502,503,504,505,506,507,508,509,451,452,453,454,455,
+558,559,560,561,562,563,564,565,566,567,568,510,511,512,513,514,
+617,618,619,620,621,622,623,624,625,626,627,569,570,571,572,573
+</chunk>
+   <chunk x="64" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,
+456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,
+515,516,517,518,519,520,521,522,523,524,525,526,527,528,529,530,
+574,575,576,577,578,579,580,581,582,583,584,585,586,587,588,589
+</chunk>
+   <chunk x="80" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,
+472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,
+531,532,533,534,535,536,537,538,539,540,541,542,543,544,545,546,
+590,591,592,593,594,595,596,597,598,599,600,601,602,603,604,605
+</chunk>
+   <chunk x="96" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+429,430,431,432,433,434,435,436,437,438,439,440,441,442,443,444,
+488,489,490,491,492,493,494,495,496,497,498,499,500,501,502,503,
+547,548,549,550,551,552,553,554,555,556,557,558,559,560,561,562,
+606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621
+</chunk>
+   <chunk x="112" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+445,446,447,448,449,450,392,393,394,395,396,397,398,399,400,401,
+504,505,506,507,508,509,451,452,453,454,455,456,457,458,459,460,
+563,564,565,566,567,568,510,511,512,513,514,515,516,517,518,519,
+622,623,624,625,626,627,569,570,571,572,573,574,575,576,577,578
+</chunk>
+   <chunk x="128" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,
+461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,
+520,521,522,523,524,525,526,527,528,529,530,531,532,533,534,535,
+579,580,581,582,583,584,585,586,587,588,589,590,591,592,593,594
+</chunk>
+   <chunk x="144" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,
+477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,
+536,537,538,539,540,541,542,543,544,545,546,547,548,549,550,551,
+595,596,597,598,599,600,601,602,603,604,605,606,607,608,609,610
+</chunk>
+   <chunk x="160" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+434,435,436,437,438,439,440,441,442,443,444,445,446,447,448,449,
+493,494,495,496,497,498,499,500,501,502,503,504,505,506,507,508,
+552,553,554,555,556,557,558,559,560,561,562,563,564,565,566,567,
+611,612,613,614,615,616,617,618,619,620,621,622,623,624,625,626
+</chunk>
+  </data>
+ </layer>
  <layer id="1" name="Pared" width="60" height="32">
   <data encoding="csv">
    <chunk x="0" y="0" width="16" height="16">
@@ -1722,208 +1924,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-</chunk>
-  </data>
- </layer>
- <layer id="2" name="Piso" width="60" height="32">
-  <data encoding="csv">
-   <chunk x="0" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,
-451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,
-510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,
-569,570,571,572,573,574,575,576,577,578,579,580,581,582,583,584
-</chunk>
-   <chunk x="16" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,
-467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,
-526,527,528,529,530,531,532,533,534,535,536,537,538,539,540,541,
-585,586,587,588,589,590,591,592,593,594,595,596,597,598,599,600
-</chunk>
-   <chunk x="32" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,
-483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,
-542,543,544,545,546,547,548,549,550,551,552,553,554,555,556,557,
-601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616
-</chunk>
-   <chunk x="48" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-440,441,442,443,444,445,446,447,448,449,450,450,392,393,394,395,
-499,500,501,502,503,504,505,506,507,508,509,509,451,452,453,454,
-558,559,560,561,562,563,564,565,566,567,568,568,510,511,512,513,
-617,618,619,620,621,622,623,624,625,626,627,627,569,570,571,572
-</chunk>
-   <chunk x="64" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-396,397,398,399,400,392,393,394,395,396,397,398,399,400,401,402,
-455,456,457,458,459,451,452,453,454,455,456,457,458,459,460,461,
-514,515,516,517,518,510,511,512,513,514,515,516,517,518,519,520,
-573,574,575,576,577,569,570,571,572,573,574,575,576,577,578,579
-</chunk>
-   <chunk x="80" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,
-462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,
-521,522,523,524,525,526,527,528,529,530,531,532,533,534,535,536,
-580,581,582,583,584,585,586,587,588,589,590,591,592,593,594,595
-</chunk>
-   <chunk x="96" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,
-478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,
-537,538,539,540,541,542,543,544,545,546,547,548,549,550,551,552,
-596,597,598,599,600,601,602,603,604,605,606,607,608,609,610,611
-</chunk>
-   <chunk x="112" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-435,392,393,394,395,392,393,394,395,396,397,398,399,400,401,402,
-494,451,452,453,454,451,452,453,454,455,456,457,458,459,460,461,
-553,510,511,512,513,510,511,512,513,514,515,516,517,518,519,520,
-612,569,570,571,572,569,570,571,572,573,574,575,576,577,578,579
-</chunk>
-   <chunk x="128" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,
-462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,
-521,522,523,524,525,526,527,528,529,530,531,532,533,534,535,536,
-580,581,582,583,584,585,586,587,588,589,590,591,592,593,594,595
-</chunk>
-   <chunk x="144" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,
-478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,
-537,538,539,540,541,542,543,544,545,546,547,548,549,550,551,552,
-596,597,598,599,600,601,602,603,604,605,606,607,608,609,610,611
-</chunk>
-   <chunk x="160" y="16" width="16" height="16">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-435,436,437,438,439,440,441,442,443,444,445,446,447,448,449,450,
-494,495,496,497,498,499,500,501,502,503,504,505,506,507,508,509,
-553,554,555,556,557,558,559,560,561,562,563,564,565,566,567,568,
-612,613,614,615,616,617,618,619,620,621,622,623,624,625,626,627
 </chunk>
   </data>
  </layer>
