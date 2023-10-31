@@ -166,7 +166,7 @@ export class scene1 extends Phaser.Scene {
 
     update () {
 
-        this.player.setVelocityX(20);
+        this.player.setVelocityX(150);
         this.player.anims.play("caminar", true);
 
     //     if(cursors.right.isDown){
