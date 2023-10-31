@@ -214,36 +214,36 @@ export class scene1 extends Phaser.Scene {
 
     update () {
 
-        // this.player.setVelocityX(100);
-        // this.player.anims.play("caminar", true);
+        this.player.setVelocityX(100);
+        this.player.anims.play("caminar", true);
 
 
-        if(this.cursors.right.isDown){
-             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
-             this.player.anims.play("caminar", true);
-             this.player.setVelocityX(250)
-             this.player.setOffset(7,14);
-            if(this.player.flipX==true) {
-                this.player.x=this.player.x+55
-            }
-            this.player.flipX=false;
-        }
-        else if(this.cursors.left.isDown) {
-            this.player.setVelocityX(-100) // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
-            this.player.anims.play("caminar", true);
-            this.player.setOffset(26,14);
-            if(this.player.flipX==false) {
-                this.player.x=this.player.x-55
-            }
-            this.player.flipX=true // Reflejar la imagen hacia el lado izquierdo
-        }
-        // else {
-        //     player.setVelocityX(0); // No hay tecla presionada, la velocidad del pesonaje es 0 sobre el eje X
-        //     player.anims.play("detenido", true);
+        // if(this.cursors.right.isDown){
+        //      // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+        //      this.player.anims.play("caminar", true);
+        //      this.player.setVelocityX(250)
+        //      this.player.setOffset(7,14);
+        //     if(this.player.flipX==true) {
+        //         this.player.x=this.player.x+55
+        //     }
+        //     this.player.flipX=false;
         // }
-         if( this.cursors.up.isDown && this.player.body.touching){
-             this.player.setVelocityY(-100);
-         }
+        // else if(this.cursors.left.isDown) {
+        //     this.player.setVelocityX(-100) // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+        //     this.player.anims.play("caminar", true);
+        //     this.player.setOffset(26,14);
+        //     if(this.player.flipX==false) {
+        //         this.player.x=this.player.x-55
+        //     }
+        //     this.player.flipX=true // Reflejar la imagen hacia el lado izquierdo
+        // }
+        // // else {
+        // //     player.setVelocityX(0); // No hay tecla presionada, la velocidad del pesonaje es 0 sobre el eje X
+        // //     player.anims.play("detenido", true);
+        // // }
+        //  if( this.cursors.up.isDown && this.player.body.touching){
+        //      this.player.setVelocityY(-100);
+        //  }
       }   
       collectCoin (player, moneda) {
         moneda.destroy()
