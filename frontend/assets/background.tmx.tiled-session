@@ -17,11 +17,11 @@
             "scaleInEditor": 1
         },
         "BackgroundScene1.tmx": {
-            "scale": 2,
-            "selectedLayer": 8,
+            "scale": 0.125,
+            "selectedLayer": 17,
             "viewCenter": {
-                "x": 3490.75,
-                "y": 681.25
+                "x": 2508,
+                "y": 1136
             }
         },
         "BackgroundScene1.tmx#BackgroundAgua": {
@@ -50,6 +50,9 @@
         },
         "BackgroundScene1.tmx#BackgroundLuces": {
             "scaleInDock": 0.25
+        },
+        "BackgroundScene1.tmx#BackgroundOffice": {
+            "scaleInEditor": 1
         },
         "BackgroundScene1.tmx#BackgroundPared": {
             "scaleInDock": 1
@@ -91,8 +94,12 @@
         },
         "BackgroundScene1.tmx#BackgroundVentana4": {
             "scaleInDock": 0.125
+        },
+        "BackgroundScene1.tmx#BackgroundWord": {
+            "scaleInDock": 1
         }
     },
+    "frame.defaultDuration": 100,
     "last.exportedFilePath": "C:/Users/Nahu/Desktop/SierraColGame/SierraColGame/frontend/assets",
     "last.imagePath": "C:/Users/Nahu/Desktop/SierraColGame/SierraColGame/frontend/assets/Objetos",
     "map.height": 32,
@@ -108,5 +115,9 @@
         "BackgroundScene1.tmx"
     ],
     "resizeMap.removeObjects": true,
-    "tileset.embedInMap": true
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 84,
+        "width": 419
+    }
 }

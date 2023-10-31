@@ -4,9 +4,10 @@ import { scene1 } from "../scenes/scene1.js";
 const config = {
     type: Phaser.AUTO,
     scale: {
+        mode: Phaser.Scale.ScaleModes.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: 1920,
-        height: 1024,
+        width: 2500,
+        height: 1024
     },
     scene: [prelodear, scene1],
     physics: {
@@ -32,3 +33,5 @@ const game = new Phaser.Game(config);
 var player;
 var cursors;
 var floor;
+
+
