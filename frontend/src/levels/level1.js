@@ -4,9 +4,9 @@ import { scene1 } from "../scenes/scene1.js";
 const config = {
     type: Phaser.AUTO,
     scale: {
-        mode: Phaser.Scale.ScaleModes.RESIZE,
-        autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: 2500,
+        // mode: Phaser.Scale.ScaleModes.RESIZE,
+        // autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1920,
         height: 1024
     },
     scene: [prelodear, scene1],
