@@ -193,11 +193,12 @@ export class scene1 extends Phaser.Scene {
 
         //Score
         this.scoreText = this.add.text(16, 16, 'Score : 0', { fontSize: '45px', fill:'black'})
+        // this.scoreText.setScrollFactor(1)
         //player
         this.player = this.physics.add.sprite(500, 900, "Player")
         this.player.setScale(3).setSize(16,36).setOffset(7,14)
         this.player.setCollideWorldBounds(true);
-        // this.cameras.main.startFollow(this.player);
+        this.cameras.main.startFollow(this.player);
 
         //moving
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -214,36 +215,38 @@ export class scene1 extends Phaser.Scene {
 
     update () {
 
-        this.player.setVelocityX(100);
-        this.player.anims.play("caminar", true);
+        this.scoreText.x = this.player.x - this.cameras.main.width / 2 + 16; // 16 es el margen izquierdo
+        this.scoreText.y = this.player.y - this.cameras.main.height / 2 + 16; // 16 es el margen superior
+        // this.player.setVelocityX(100);
+        // this.player.anims.play("caminar", true);
 
 
-        // if(this.cursors.right.isDown){
-        //      // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
-        //      this.player.anims.play("caminar", true);
-        //      this.player.setVelocityX(250)
-        //      this.player.setOffset(7,14);
-        //     if(this.player.flipX==true) {
-        //         this.player.x=this.player.x+55
-        //     }
-        //     this.player.flipX=false;
-        // }
-        // else if(this.cursors.left.isDown) {
-        //     this.player.setVelocityX(-100) // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
-        //     this.player.anims.play("caminar", true);
-        //     this.player.setOffset(26,14);
-        //     if(this.player.flipX==false) {
-        //         this.player.x=this.player.x-55
-        //     }
-        //     this.player.flipX=true // Reflejar la imagen hacia el lado izquierdo
-        // }
+        if(this.cursors.right.isDown){
+             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+             this.player.anims.play("caminar", true);
+             this.player.setVelocityX(250)
+             this.player.setOffset(7,14);
+            if(this.player.flipX==true) {
+                this.player.x=this.player.x+55
+            }
+            this.player.flipX=false;
+        }
+        else if(this.cursors.left.isDown) {
+            this.player.setVelocityX(-100) // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+            this.player.anims.play("caminar", true);
+            this.player.setOffset(26,14);
+            if(this.player.flipX==false) {
+                this.player.x=this.player.x-55
+            }
+            this.player.flipX=true // Reflejar la imagen hacia el lado izquierdo
+        }
         // // else {
         // //     player.setVelocityX(0); // No hay tecla presionada, la velocidad del pesonaje es 0 sobre el eje X
         // //     player.anims.play("detenido", true);
         // // }
-        //  if( this.cursors.up.isDown && this.player.body.touching){
-        //      this.player.setVelocityY(-100);
-        //  }
+         if( this.cursors.up.isDown && this.player.body.touching){
+             this.player.setVelocityY(-500);
+         }
       }   
       collectCoin (player, moneda) {
         moneda.destroy()
