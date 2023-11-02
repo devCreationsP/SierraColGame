@@ -1,9 +1,11 @@
+
 export class scene1 extends Phaser.Scene {
 
     constructor () {
         super ({ key: 'scene1' }); // nombre escena
         this.score = 0;
         this.scoreText;
+        this.additionalExecutions = 0;
         
     }
  
@@ -11,6 +13,7 @@ export class scene1 extends Phaser.Scene {
         this.load.image("piso", "./assets/floor.png");
         this.load.image("moneda", "./assets/Iconos/puntosPositivos/Recurso28.png");
         this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
+        this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
 
 
         // tiled
@@ -43,6 +46,8 @@ export class scene1 extends Phaser.Scene {
         }
 
     create () {
+
+        this.physics.world.setBounds(0, 0, 9000, 720);
 
         //En la carpeta assets está el proyecto de tiled con la extensión pisoBackground.tmx, de ahí se obtienen los nombres
         
@@ -122,55 +127,23 @@ export class scene1 extends Phaser.Scene {
         var tileset21 = map.addTilesetImage('BackgroundImpresora', "Impresora")
         var columnas = map.createLayer("Impresora" , tileset21)
 
-        // var tileset22 = map.addTilesetImage('BackgroundWord', "Monedas")
-        // var coin = map.createLayer("Monedas" , tileset22)
-        // coin.setCollisionByExclusion([-1]);
-        // this.physics.world.addCollider(this.player, coin, this.collectCoin, null, this)
+        this.anonymous = this.physics.add.group();
+
         
         // --------- Sistema de monedas ---------//
    
                 this.monedero = this.physics.add.group({ 
                     key:"moneda",
-                    repeat: 5,
+                    repeat: 50,
                     setScale:{x:1, y: 1},
                     setXY: {x:50, y:550, stepX: 250},
                     // gravityY: 0
                 })
-                // this.monedero.setGravityY(0);
-                // var positions = [
-                //     { x: 100, y: 200 },
-                //     { x: 1000, y: 400 },
-                //     { x: 500, y: 600 },
-                //     { x: 700, y: 800 }
-                // ];
-            
-                // this.monedero.children.iterate((moneda, index) => {
-                //     if (moneda) {
-                //         var aver = moneda.setPosition(positions[index].x, positions[index].y);
-                //         console.log(aver)
-                //         moneda.setBounce(Phaser.Math.FloatBetween(0.4, 0.8));
-                //     } else {
-                //         console.log(`Moneda ${index} no definida.`);
-                //     }
-                // });
                 
                 this.monedero.children.iterate(function(monedas){
-                    monedas.setBounce(Phaser.Math.FloatBetween(0.4, 0.8))
+                    monedas.setBounce(0.2)
                     monedas.setScale(1)
                 })
-
-                //  // Posición aleatoria pero fija para las monedas
-                // const posicionX = Phaser.Math.Between(100, 1500); // Coordenadas X aleatorias entre 100 y 700
-                // const posicionY = Phaser.Math.Between(150, 500); // Coordenadas Y aleatorias entre 100 y 500
-
-                // // Crea las monedas en la posición aleatoria pero fija
-                // this.monedero.children.iterate(function (moneda) {
-                //     const x = posicionX + Phaser.Math.Between(-200, 550); // Variación aleatoria en X
-                //     const y = posicionY + Phaser.Math.Between(-200, 550); // Variación aleatoria en Y
-                //     moneda.setX(x);
-                //     moneda.setY(y);
-                //     moneda.setBounce(Phaser.Math.FloatBetween(0.4, 0.8));
-                // });
                 
                 
         // --------------------------------------// 
@@ -192,13 +165,24 @@ export class scene1 extends Phaser.Scene {
         });
 
         //Score
-        this.scoreText = this.add.text(16, 16, 'Score : 0', { fontSize: '45px', fill:'black'})
+        this.scoreText = this.add.text(100, 380, 'Score : 0', { fontSize: '45px', fill:'black'})
         // this.scoreText.setScrollFactor(1)
         //player
-        this.player = this.physics.add.sprite(500, 900, "Player")
+        this.player = this.physics.add.sprite(750, 650, "Player")
         this.player.setScale(3).setSize(16,36).setOffset(7,14)
-        this.player.setCollideWorldBounds(true);
+        this.player.setCollideWorldBounds(false);
         this.cameras.main.startFollow(this.player);
+
+        // Función para ajustar la altura de la cámara
+        function ajustarAlturaCamara(altura) {
+            this.cameras.main.setFollowOffset(0, altura);
+        }
+
+        // Llamar a la función para establecer la altura inicial de la cámara
+        ajustarAlturaCamara.call(this, 200);
+
+// Luego, en cualquier momento en el que desees cambiar la altura de la cámara, puedes llamar a la función así:
+// ajustarAlturaCamara(alturaDeseada);
 
         //moving
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -209,63 +193,80 @@ export class scene1 extends Phaser.Scene {
         this.physics.add.collider(this.player, piso)
         this.physics.add.collider(piso, this.monedero)
         this.physics.add.overlap(this.player, this.monedero, (player, moneda) => this.collectCoin(player,moneda))
+        this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player,anonymous))
         
 
     }
 
-    update () {
-
-        this.scoreText.x = this.player.x - this.cameras.main.width / 2 + 16; // 16 es el margen izquierdo
-        this.scoreText.y = this.player.y - this.cameras.main.height / 2 + 16; // 16 es el margen superior
+    update() {
+         this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
         // this.player.setVelocityX(100);
         // this.player.anims.play("caminar", true);
-
-
-        if(this.cursors.right.isDown){
-             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
-             this.player.anims.play("caminar", true);
-             this.player.setVelocityX(250)
-             this.player.setOffset(7,14);
-            if(this.player.flipX==true) {
-                this.player.x=this.player.x+55
-            }
-            this.player.flipX=false;
-        }
-        else if(this.cursors.left.isDown) {
-            this.player.setVelocityX(-100) // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de 100 sobre el eje X
+    
+        if (this.cursors.right.isDown) {
+            // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
             this.player.anims.play("caminar", true);
-            this.player.setOffset(26,14);
-            if(this.player.flipX==false) {
-                this.player.x=this.player.x-55
+            this.player.setVelocityX(250);
+            this.player.setOffset(7, 14);
+    
+            if (this.player.flipX === true) {
+                this.player.x += 55;
             }
-            this.player.flipX=true // Reflejar la imagen hacia el lado izquierdo
+            this.player.flipX = false;
+        } else if (this.cursors.left.isDown) {
+            // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
+            this.player.anims.play("caminar", true);
+            this.player.setVelocityX(-250);
+            this.player.setOffset(26, 14);
+    
+            if (this.player.flipX === false) {
+                this.player.x -= 55;
+            }
+            this.player.flipX = true; // Reflejar la imagen hacia el lado izquierdo
+        } else if (this.cursors.up.isDown) {
+            this.player.setVelocityY(-200);
+        } else {
+            this.player.setVelocityX(0); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
+            this.player.anims.play("detenido", true);
         }
-        // // else {
-        // //     player.setVelocityX(0); // No hay tecla presionada, la velocidad del pesonaje es 0 sobre el eje X
-        // //     player.anims.play("detenido", true);
-        // // }
-         if( this.cursors.up.isDown && this.player.body.touching){
-             this.player.setVelocityY(-500);
-         }
-      }   
-      collectCoin (player, moneda) {
-        moneda.destroy()
-        this.score += 10;
-        this.scoreText.setText("Score: " + this.score);
+
+
+            // Verifica si el score es un múltiplo de 30 y está en el rango de 30 a 60
+        if (this.score >= (60 * (this.additionalExecutions + 1))) {
+            for (var i = -1; i < this.additionalExecutions; i++) {
+                this.negativePoints();
+            }
+            this.additionalExecutions++;
+        }
+            
+
     }
+
+        negativePoints() {
+            var x = this.player.x + 400;
+        
+            var y = Phaser.Math.Between(0, 1260); // Asegurarse de que la altura no supere 1080
+            var anonymus = this.anonymous.create(x, y, 'anonymus');
+            anonymus.setBounce(1);
+            anonymus.setCollideWorldBounds(true);
+            anonymus.setVelocity(Phaser.Math.Between(-200, 200), 20);
+        
+            // Puedes configurar la duración durante la cual se muestra la imagen y luego eliminarla si lo deseas
+            this.time.delayedCall(100000, function() {
+                anonymus.destroy();
+            }, [], this);
+        }
+    
+        negative(player, anonymous){
+            anonymous.destroy()
+            this.score += -50
+            this.scoreText.setText("Score: " + this.score);
+        }
+    
+        collectCoin (player, moneda) {
+            moneda.destroy()
+            this.score += 10;
+            this.scoreText.setText("Score: " + this.score);
+        }
 }
 
-
-        // --------- Sistema de monedas ---------//
-        // this.monedero = this.physics.add.group({ 
-        //     key:"moneda",
-        //     repeat: 5,
-        //     setScale:{x:0.1, y: 0.1},
-        //     setXY: {x:50, y:50, stepX: 100}
-        // })
-
-        // this.monedero.children.iterate(function(monedas){
-        //     monedas.setBounce(Phaser.Math.FloatBetween(0.4, 0.8))
-        // })
-
-        // --------------------------------------//
