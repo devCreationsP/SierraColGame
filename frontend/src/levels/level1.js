@@ -4,10 +4,10 @@ import { scene1 } from "../scenes/scene1.js";
 const config = {
     type: Phaser.AUTO,
     scale: {
-    //    mode: Phaser.Scale.ScaleModes.RESIZE,
-    //    autoCenter: Phaser.Scale.CENTER_BOTH,
+        mode: Phaser.Scale.ScaleModes.RESIZE,
+       autoCenter: Phaser.Scale.CENTER_BOTH,
         width: 1920,
-        height: 1024
+        height: 1280
     },
     scene: [prelodear , scene1],
     physics: {
