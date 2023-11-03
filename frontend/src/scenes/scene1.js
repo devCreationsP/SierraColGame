@@ -8,35 +8,17 @@ export class scene1 extends Phaser.Scene {
     }
  
     preload () {
-        this.load.image("piso", "./assets/floor.png");
+     //   this.load.image("Floor", "./assets/floor.png");
         this.load.image("moneda", "./assets/Iconos/puntosPositivos/Recurso28.png");
         this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
 
 
         // tiled
         // se cargan las imagenes con las cuales se realiza el proyecto en tiled
-        this.load.image('Piso' , "./assets/Fondo/Recurso2.png")
-        this.load.image('Pared' , "./assets/Fondo/Pared.png")
-        this.load.image('Techo' , "./assets/Fondo/Techo.png")
-        this.load.image('Luces' , "./assets/Fondo/Luces.png")
-        this.load.image('Columnas' , "./assets/Fondo/Columnas.png")
-        this.load.image('Escritorios' , "./assets/Objetos/Recurso33.png")
-        this.load.image('Archivo' , "./assets/Objetos/Recurso24.png")
-        this.load.image('Archivo2' , "./assets/Objetos/Recurso25.png")
-        this.load.image('Reloj' , "./assets/Objetos/Recurso30.png")
-        this.load.image('Basura' , "./assets/Objetos/Recurso27.png")
-        this.load.image('Agua' , "./assets/Objetos/Recurso32.png")
-        this.load.image('Sillon1' , "./assets/Objetos/Recurso29.png")
-        this.load.image('Sillon2' , "./assets/Objetos/Recurso28.png")
-        this.load.image('Estante' , "./assets/Objetos/Recurso26.png")
-        this.load.image('Planta' , "./assets/Objetos/Recurso31.png")
-        this.load.image('Planta2' , "./assets/Objetos/Recurso23.png")
-        this.load.image('Pizarra' , "./assets/Objetos/Recurso34.png")
-        this.load.image('Impresora' , "./assets/Objetos/Recurso35.png")
-        this.load.image('Ventana1' , "./assets/Ventanas/Recurso12.png")
-        this.load.image('Ventana2' , "./assets/Ventanas/Recurso13.png")
-        this.load.image('Ventana3' , "./assets/Ventanas/Recurso14.png")
-        this.load.image('Ventana4' , "./assets/Ventanas/Recurso15.png")
+        this.load.image('Floor' , "./assets/Fondo/Recurso2.png")
+        this.load.image('Background' , "./assets/Escenarios.png")
+        this.load.image('Objects' , "./assets/Objetos.png")
+        this.load.image('Barriers' , "./assets/Obstaculos.png")
         // this.load.image('Monedas' , "./assets/Iconos/puntosPositivos/Recurso28.png")
         // se exporta el mapa creado en tiled y se lo importa al archivo pisoBackground.json    
         this.load.tilemapTiledJSON('tilemap', "./assets/Background.json")
@@ -51,77 +33,24 @@ export class scene1 extends Phaser.Scene {
         // se mapea los datos del objeto map mediante el metodo addTilesetImage
         // Los parametros se establecen con (Nombre de conjunto de patron en el software tiled, Nombre que se le asigna en el preload a la imagen )
        
-        var tileset = map.addTilesetImage('BackgroundPiso', "Piso") 
-        var piso = map.createLayer("Piso" , tileset) // Se crea el piso, con el nombre de la capa asignada en tiled, "PisoTiled"
+        var tileset = map.addTilesetImage('BackgroundPiso', "Floor") 
+        var piso = map.createLayer("Floor" , tileset) // Se crea el piso, con el nombre de la capa asignada en tiled, "PisoTiled"
         piso.setCollisionByProperty({colision:true}) // Se activa la propiedad que brindamos a los bloques en tiled
         
 
         // creación de paredes
-        var tileset2 = map.addTilesetImage('BackgroundPared', "Pared")
-        var pared = map.createLayer("Pared" , tileset2)
+        var tileset2 = map.addTilesetImage('Background', "Background")
+        var pared = map.createLayer("Background" , tileset2)
 
-        // creacion techo
-        var tileset3 = map.addTilesetImage('BackgroundTecho', "Techo")
-        var techo = map.createLayer("Techo" , tileset3)
+        // creación de objetos
+        var tileset3 = map.addTilesetImage('Objects', "Objects")
+        var objects = map.createLayer("Objects" , tileset3)
 
-        // creacion columnas
-        var tileset4 = map.addTilesetImage('BackgroundColumnas', "Columnas")
-        var columnas = map.createLayer("Columnas" , tileset4)
+        // creación de barreras
+        var tileset4 = map.addTilesetImage('Barriers', "Barriers")
+        var barriers = map.createLayer("Barriers" , tileset4)
 
-        var tileset5 = map.addTilesetImage('BackgroundVentana1', "Ventana1")
-        var columnas = map.createLayer("Ventana1" , tileset5)
-
-        var tileset6 = map.addTilesetImage('BackgroundVentana2', "Ventana2")
-        var columnas = map.createLayer("Ventana2" , tileset6)
         
-        var tileset7 = map.addTilesetImage('BackgroundVentana3', "Ventana3")
-        var columnas = map.createLayer("Ventana3" , tileset7)
-        
-        var tileset8 = map.addTilesetImage('BackgroundVentana4', "Ventana4")
-        var columnas = map.createLayer("Ventana4" , tileset8)
-
-        var tileset9 = map.addTilesetImage('BackgroundLuces', "Luces")
-        var columnas = map.createLayer("Luces" , tileset9)
-
-        var tileset10 = map.addTilesetImage('BackgroundEscritorio', "Escritorios")
-        var columnas = map.createLayer("Escritorios" , tileset10)
-
-        var tileset11 = map.addTilesetImage('BackgroundArchivo', "Archivo")
-        var columnas = map.createLayer("Archivo1" , tileset11)
-
-        var tileset22 = map.addTilesetImage('BackgroundArchivo2', "Archivo2")
-        var columnas = map.createLayer("Archivo2" , tileset22)
-
-        var tileset12 = map.addTilesetImage('BackgroundReloj', "Reloj")
-        var columnas = map.createLayer("Reloj" , tileset12)
-
-        var tileset13 = map.addTilesetImage('BackgroundBasura', "Basura")
-        var columnas = map.createLayer("Basura" , tileset13)
-
-        var tileset14 = map.addTilesetImage('BackgroundAgua', "Agua")
-        var columnas = map.createLayer("Agua" , tileset14)
-
-        var tileset15 = map.addTilesetImage('BackgroundSillon1', "Sillon1")
-        var columnas = map.createLayer("Sillon1" , tileset15)
-
-        var tileset16 = map.addTilesetImage('BackgroundSillon2', "Sillon2")
-        var columnas = map.createLayer("Sillon2" , tileset16)
-
-        var tileset17 = map.addTilesetImage('BackgroundEstante', "Estante")
-        var columnas = map.createLayer("Estante" , tileset17)
-
-        var tileset18 = map.addTilesetImage('BackgroundPlanta', "Planta")
-        var columnas = map.createLayer("Planta" , tileset18)
-
-        var tileset19 = map.addTilesetImage('BackgroundPlanta2', "Planta2")
-        var columnas = map.createLayer("Planta2" , tileset19)
-
-        var tileset20 = map.addTilesetImage('BackgroundPizarra', "Pizarra")
-        var columnas = map.createLayer("Pizarra" , tileset20)
-
-        var tileset21 = map.addTilesetImage('BackgroundImpresora', "Impresora")
-        var columnas = map.createLayer("Impresora" , tileset21)
-
         // var tileset22 = map.addTilesetImage('BackgroundWord', "Monedas")
         // var coin = map.createLayer("Monedas" , tileset22)
         // coin.setCollisionByExclusion([-1]);
@@ -197,7 +126,7 @@ export class scene1 extends Phaser.Scene {
         this.player = this.physics.add.sprite(500, 900, "Player")
         this.player.setScale(3).setSize(16,36).setOffset(7,14)
         this.player.setCollideWorldBounds(true);
-        // this.cameras.main.startFollow(this.player);
+        this.cameras.main.startFollow(this.player);
 
         //moving
         this.cursors = this.input.keyboard.createCursorKeys();
