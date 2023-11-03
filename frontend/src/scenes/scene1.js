@@ -6,7 +6,8 @@ export class scene1 extends Phaser.Scene {
         this.score = 0;
         this.scoreText;
         this.additionalExecutions = 0;
-        
+        this.gameOver = false;
+        this.onGround = false;
     }
  
     preload () {
@@ -48,6 +49,13 @@ export class scene1 extends Phaser.Scene {
     create () {
 
         this.physics.world.setBounds(0, 0, 9000, 720);
+
+        // Crea un gráfico de depuración para ver las colisiones
+        const graphics = this.physics.world.createDebugGraphic();
+
+        // Agrega el gráfico de depuración a la escena
+        this.add.existing(graphics);
+
 
         //En la carpeta assets está el proyecto de tiled con la extensión pisoBackground.tmx, de ahí se obtienen los nombres
         
@@ -129,21 +137,23 @@ export class scene1 extends Phaser.Scene {
 
         this.anonymous = this.physics.add.group();
 
+       // this.physics.world.setBoundsCollision(true, true, false, true);
+
         
         // --------- Sistema de monedas ---------//
    
-                this.monedero = this.physics.add.group({ 
-                    key:"moneda",
-                    repeat: 50,
-                    setScale:{x:1, y: 1},
-                    setXY: {x:50, y:550, stepX: 250},
-                    // gravityY: 0
-                })
+        this.monedero = this.physics.add.group({ 
+            key:"moneda",
+            repeat: 50,
+            setScale:{x:1, y: 1},
+            setXY: {x:50, y:720, stepX: 250},
+            // gravityY: 0
+        })
                 
-                this.monedero.children.iterate(function(monedas){
-                    monedas.setBounce(0.2)
-                    monedas.setScale(1)
-                })
+         this.monedero.children.iterate(function(monedas){
+            monedas.setBounce(0.2)
+            monedas.setScale(1)
+        })
                 
                 
         // --------------------------------------// 
@@ -168,9 +178,10 @@ export class scene1 extends Phaser.Scene {
         this.scoreText = this.add.text(100, 380, 'Score : 0', { fontSize: '45px', fill:'black'})
         // this.scoreText.setScrollFactor(1)
         //player
-        this.player = this.physics.add.sprite(750, 650, "Player")
+        this.player = this.physics.add.sprite(750, 900, "Player")
         this.player.setScale(3).setSize(16,36).setOffset(7,14)
         this.player.setCollideWorldBounds(false);
+        this.player.setGravityY(250); // Ajusta el valor según tus necesidades
         this.cameras.main.startFollow(this.player);
 
         // Función para ajustar la altura de la cámara
@@ -190,8 +201,22 @@ export class scene1 extends Phaser.Scene {
         // collision
 
         // this.physics.add.collider(this.floor, this.player)
-        this.physics.add.collider(this.player, piso)
+        // Establecer colisión con el piso
+        this.physics.add.collider(this.player, piso, () => {
+            this.onGround = true;
+        });
+
+// Configurar el evento onWorldBounds para verificar si el personaje toca el piso
+        this.player.body.onWorldBounds = true;
+        this.player.body.world.on('worldbounds', (body) => {
+        if (body.gameObject === piso) {
+            this.onGround = true;
+        }
+        });
+
         this.physics.add.collider(piso, this.monedero)
+        this.physics.add.collider(this.anonymous, piso)
+        this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.hitEnemy(player, anonymous))
         this.physics.add.overlap(this.player, this.monedero, (player, moneda) => this.collectCoin(player,moneda))
         this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player,anonymous))
         
@@ -199,40 +224,18 @@ export class scene1 extends Phaser.Scene {
     }
 
     update() {
-         this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
-        // this.player.setVelocityX(100);
-        // this.player.anims.play("caminar", true);
-    
-        if (this.cursors.right.isDown) {
-            // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
-            this.player.anims.play("caminar", true);
-            this.player.setVelocityX(250);
-            this.player.setOffset(7, 14);
-    
-            if (this.player.flipX === true) {
-                this.player.x += 55;
-            }
-            this.player.flipX = false;
-        } else if (this.cursors.left.isDown) {
-            // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
-            this.player.anims.play("caminar", true);
-            this.player.setVelocityX(-250);
-            this.player.setOffset(26, 14);
-    
-            if (this.player.flipX === false) {
-                this.player.x -= 55;
-            }
-            this.player.flipX = true; // Reflejar la imagen hacia el lado izquierdo
-        } else if (this.cursors.up.isDown) {
-            this.player.setVelocityY(-200);
-        } else {
-            this.player.setVelocityX(0); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
-            this.player.anims.play("detenido", true);
+        this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
+        this.player.setVelocityX(200);
+        this.player.anims.play("caminar", true);
+
+        if (this.cursors.up.isDown && this.onGround) {
+            // Salto
+            this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
+            this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
         }
 
-
             // Verifica si el score es un múltiplo de 30 y está en el rango de 30 a 60
-        if (this.score >= (60 * (this.additionalExecutions + 1))) {
+        if (this.score >= (20 * (this.additionalExecutions + 1))) {
             for (var i = -1; i < this.additionalExecutions; i++) {
                 this.negativePoints();
             }
@@ -243,16 +246,16 @@ export class scene1 extends Phaser.Scene {
     }
 
         negativePoints() {
-            var x = this.player.x + 400;
+            var x = this.player.x + 900;
         
-            var y = Phaser.Math.Between(0, 1260); // Asegurarse de que la altura no supere 1080
+            var y = Phaser.Math.Between(600, 800); // Asegurarse de que la altura no supere 1080
             var anonymus = this.anonymous.create(x, y, 'anonymus');
-            anonymus.setBounce(1);
-            anonymus.setCollideWorldBounds(true);
-            anonymus.setVelocity(Phaser.Math.Between(-200, 200), 20);
+            anonymus.setBounce(2);
+           // anonymus.setCollideWorldBounds(true);
+            anonymus.setVelocity(Phaser.Math.Between(-750, -100), 20);
         
             // Puedes configurar la duración durante la cual se muestra la imagen y luego eliminarla si lo deseas
-            this.time.delayedCall(100000, function() {
+            this.time.delayedCall(15000, function() {
                 anonymus.destroy();
             }, [], this);
         }
@@ -261,6 +264,14 @@ export class scene1 extends Phaser.Scene {
             anonymous.destroy()
             this.score += -50
             this.scoreText.setText("Score: " + this.score);
+
+            if(this.score < 0){
+                this.physics.pause();
+
+                player.setTint(0xff0000)
+
+                this.gameOver = true;
+            }
         }
     
         collectCoin (player, moneda) {
@@ -268,5 +279,47 @@ export class scene1 extends Phaser.Scene {
             this.score += 10;
             this.scoreText.setText("Score: " + this.score);
         }
+
+        hitEnemy(player, anonymus) {
+            if (!this.gameOver) {
+                this.score = 0;
+                this.scene.start('gameover');
+            }
+            else {
+                this.scene.start('prelodear')
+            }
+            
+            
+        }
 }
 
+
+
+//------------------Control personaje -------------//
+
+        // if (this.cursors.right.isDown) {
+        //     // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
+        //     this.player.anims.play("caminar", true);
+        //     this.player.setVelocityX(250);
+        //     this.player.setOffset(7, 14);
+    
+        //     if (this.player.flipX === true) {
+        //         this.player.x += 55;
+        //     }
+        //     this.player.flipX = false;
+        // } else if (this.cursors.left.isDown) {
+        //     // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
+        //     this.player.anims.play("caminar", true);
+        //     this.player.setVelocityX(-250);
+        //     this.player.setOffset(26, 14);
+    
+        //     if (this.player.flipX === false) {
+        //         this.player.x -= 55;
+        //     }
+        //     this.player.flipX = true; // Reflejar la imagen hacia el lado izquierdo
+        // } else if (this.cursors.up.isDown) {
+        //     this.player.setVelocityY(-200);
+        // } else {
+        //     this.player.setVelocityX(0); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
+        //     this.player.anims.play("detenido", true);
+        // }
