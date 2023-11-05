@@ -12,9 +12,13 @@ export class scene1 extends Phaser.Scene {
     }
  
     preload () {
-        // this.load.image("piso", "./assets/floor.png");
-        this.load.image("moneda", "./assets/Iconos/puntosPositivos/Recurso28.png");
+        this.load.image("word", "./assets/Iconos/puntosPositivos/Recurso28.png");
+        this.load.image("excel", "./assets/Iconos/puntosPositivos/Recurso27.png");
+        this.load.image("skype", "./assets/Iconos/puntosPositivos/Recurso15.png");
+        this.load.image("outlook", "./assets/Iconos/puntosPositivos/Recurso23.png");
+        this.load.image("note", "./assets/Iconos/puntosPositivos/Recurso25.png");
         this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
+        this.load.image("powerpoint", "./assets/Iconos/puntosPositivos/Recurso24.png");
         this.load.image("blue-flare", "./assets/green.png")
         this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
 
@@ -47,61 +51,29 @@ export class scene1 extends Phaser.Scene {
 
         // creacion columnas
         var tileset4 = map.addTilesetImage('Barriers', "Barriers")
-        var columnas = map.createLayer("Barriers" , tileset4)
-        columnas.setCollisionByProperty({colision:true})
+        var obstaculos = map.createLayer("Barriers" , tileset4)
+        obstaculos.setCollisionByProperty({colision:true})
 
         var tileset4 = map.addTilesetImage('Objects', "Objects")
         var objetos = map.createLayer("Objects" , tileset4)
 
         this.anonymous = this.physics.add.group();
 
-        
         // --------- Sistema de monedas ---------//
-   
-        const moneda = this.add.image(600, 700 , "moneda").setInteractive();
-        const emitZone = { type: 'edge', source: moneda.getBounds(), quantity: 45};
-        this.emitter = this.add.particles(0, 0, 'blue-flare', {
-            speed: 10,
-        
-            quantity: 1,
-            scale: { start: 0.1, end: 0 },
-            advance: 100,
-            bledMode: 'ADD',
-            emitZone: [ emitZone ]
-        });
-        moneda.on('pointerover', () => {
-
-            this.emitter.setEmitZone(0);
-            this.emitter.fastForward(1500);
-        
-        });
-        
-        
-        // --------------------------------------// 
-        
-   
-        this.monedero = this.physics.add.group({ 
-            key:"moneda",
-            repeat: 5,
-            setScale:{x:1, y: 1},
-            setXY: {x:50, y:940, stepX: 250},
-        })
-        
+        this.monedero = this.physics.add.group()
+        this.monedero.create(200, 940, "skype");
+        this.monedero.create(500, 940, "word");
+        this.monedero.create(1000, 940, "note");
+        this.monedero.create(1500, 940, "skype");
+        this.monedero.create(2375, 500, "skype").setScale(1);
+        this.monedero.create(2750, 940, "powerpoint");
+        this.monedero.create(3100, 940, "word");
+        this.monedero.create(3500, 940, "note");
+        this.monedero.create(3950, 500, "outlook");   
         this.monedero.children.iterate(function(monedas) {
-            monedas.setBounce(Phaser.Math.FloatBetween(0.4, 0.8));
-            monedas.setScale(1);
-        //     const emitZoneMonedas = { type: 'edge', source: this.monedero.getBounds(), quantity: 45 };
-        //     this.emitterMonedas = this.add.particles(0, 0, 'blue-flare', {
-        //     speed: 10,
-        //     quantity: 1,
-        //     scale: { start: 0.1, end: 0 },
-        //     advance: 100,
-        //     blendMode: 'ADD',
-        //     emitZone: [emitZoneMonedas]
-        // });
-            }
-        )
-
+            monedas.setScale(1.5);   
+        });
+        // --------------------------------------// 
         //animation
         this.anims.create({
             key: "detenido", // nombre de la animacion
@@ -117,11 +89,12 @@ export class scene1 extends Phaser.Scene {
             repeat:-1
         });
 
+
         //Score
         this.scoreText = this.add.text(100, 380, 'Score : 0', { fontSize: '45px', fill:'black'})
         // this.scoreText.setScrollFactor(1)
         //player
-        this.player = this.physics.add.sprite(750, 650, "Player")
+        this.player = this.physics.add.sprite(750, 900, "Player")
         this.player.setScale(3).setSize(16,36).setOffset(7,14)
         this.player.setCollideWorldBounds(false);
         this.cameras.main.startFollow(this.player);
@@ -146,6 +119,7 @@ export class scene1 extends Phaser.Scene {
         this.physics.add.collider(this.player, piso)
         this.physics.add.collider(this.player, columnas)
         this.physics.add.collider(piso, this.monedero)
+        this.physics.add.collider(obstaculos, this.monedero)
         this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.hitBomb(player, anonymous))
         this.physics.add.overlap(this.player, this.monedero,  (player, moneda) => this.collectCoin(player,moneda))
         this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player,anonymous))   
@@ -163,7 +137,7 @@ export class scene1 extends Phaser.Scene {
         if (this.cursors.right.isDown) {
             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
             this.player.anims.play("caminar", true);
-            this.player.setVelocityX(250);
+            this.player.setVelocityX(500);
             this.player.setOffset(7, 14);
     
             if (this.player.flipX === true) {
@@ -226,6 +200,7 @@ export class scene1 extends Phaser.Scene {
             moneda.disableBody(true, true)
             this.score += 10;
             this.scoreText.setText("Score: " + this.score);
+  
         }
 
         hitBomb(player, anonymus) {
