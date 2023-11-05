@@ -5,11 +5,11 @@ export class prelodear extends Phaser.Scene {
     }
     preload() {
         // Carga de recursos aquí...
-        this.load.image("background", "./assets/fondoBlanco.png")
+        this.load.image("backgroundi", "./assets/fondoBlanco.png")
     }
 
     create() {
-         const background = this.add.image(400, 300, "background"); // Colocar el fondo en el centro de la pantalla
+         const background = this.add.image(400, 300, "backgroundi"); // Colocar el fondo en el centro de la pantalla
          background.setScale(2); // Escalar el fondo para que cubra toda la pantalla
     
         // // Crear un texto en la posición deseada
@@ -66,8 +66,7 @@ export class prelodear extends Phaser.Scene {
                 opcionText.setColor('#00ff00'); // Cambiar a verde (#00ff00)
 
                 // Obtener referencia a la escena game1
-                this.scene.launch('scene1');
-
+                this.scene.start('scene1');
             });
             const graphics = this.add.graphics();
             graphics.fillStyle(0x333333, 0.1); // Color y opacidad del recuadro
