@@ -21,6 +21,7 @@ export class scene1 extends Phaser.Scene {
         this.load.image("powerpoint", "./assets/Iconos/puntosPositivos/Recurso24.png");
         this.load.image("blue-flare", "./assets/green.png")
         this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
+        this.load.audio("soundpick", "src/sounds/mario-coin.ogg")
 
 
         // tiled
@@ -73,6 +74,7 @@ export class scene1 extends Phaser.Scene {
             monedas.setScale(1.5);   
         });
         this.anonymous = this.physics.add.group();
+        this.soundCoin = this.sound.add('soundpick')
         // --------------------------------------// 
         //animation
         this.anims.create({
@@ -117,7 +119,7 @@ export class scene1 extends Phaser.Scene {
 
         // this.physics.add.collider(this.floor, this.player)
         this.physics.add.collider(this.player, piso)
-        this.physics.add.collider(this.player, columnas)
+        this.physics.add.collider(this.player, obstaculos)
         this.physics.add.collider(piso, this.monedero)
         this.physics.add.collider(obstaculos, this.monedero)
         this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.hitBomb(player, anonymous))
@@ -197,6 +199,7 @@ export class scene1 extends Phaser.Scene {
         }
     
         collectCoin (player, moneda) {
+            this.soundCoin.play();
             moneda.disableBody(true, true)
             this.score += 10;
             this.scoreText.setText("Score: " + this.score);
