@@ -26,7 +26,7 @@ export class prelodear extends Phaser.Scene {
 
         const preguntaText = this.add.text(
             this.cameras.main.centerX,
-            this.cameras.main.centerY - 400,
+            this.cameras.main.centerY - 200,
             'Bienvenido',
             {
                 fontSize: '24px',
