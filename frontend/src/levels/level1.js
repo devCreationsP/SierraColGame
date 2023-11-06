@@ -1,7 +1,7 @@
 import { prelodear } from "../tiled/prelodear.js";
 import { scene1 } from "../scenes/scene1.js";
 import { gameOver} from "../scenes/gameOver.js"
-import { user } from "../scenes/user.js";
+// import { user } from "../scenes/user.js";
 
 const config = {
     type: Phaser.AUTO,
@@ -12,9 +12,9 @@ const config = {
         height: 1280
         
     },
-    dom: {
-        createContainer: true
-    },
+    // dom: {
+    //     createContainer: true
+    // },
     scene: [prelodear,user, scene1 , gameOver],
     physics: {
         default: 'arcade',

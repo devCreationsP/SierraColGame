@@ -12,12 +12,12 @@ export class scene1 extends Phaser.Scene {
     }
  
     preload () {
+        this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
         this.load.image("word", "./assets/Iconos/puntosPositivos/Recurso28.png");
         this.load.image("excel", "./assets/Iconos/puntosPositivos/Recurso27.png");
         this.load.image("skype", "./assets/Iconos/puntosPositivos/Recurso15.png");
         this.load.image("outlook", "./assets/Iconos/puntosPositivos/Recurso23.png");
         this.load.image("note", "./assets/Iconos/puntosPositivos/Recurso25.png");
-        this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
         this.load.image("powerpoint", "./assets/Iconos/puntosPositivos/Recurso24.png");
         this.load.image("blue-flare", "./assets/green.png")
         this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
@@ -57,8 +57,7 @@ export class scene1 extends Phaser.Scene {
         var tileset4 = map.addTilesetImage('Objects', "Objects")
         var objetos = map.createLayer("Objects" , tileset4)
 
-        this.anonymous = this.physics.add.group();
-
+        
         // --------- Sistema de monedas ---------//
         this.monedero = this.physics.add.group()
         this.monedero.create(200, 940, "skype");
@@ -73,6 +72,7 @@ export class scene1 extends Phaser.Scene {
         this.monedero.children.iterate(function(monedas) {
             monedas.setScale(1.5);   
         });
+        this.anonymous = this.physics.add.group();
         // --------------------------------------// 
         //animation
         this.anims.create({

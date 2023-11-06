@@ -14,7 +14,7 @@ export class user extends Phaser.Scene {
         this.add.image(400, 300, 'pic')
         var text = this.add.text(400, 200, 'Por favor, ingresa tu nombre:', { font: '24px Arial', fill: '#ffffff' });
         text.setOrigin(0.5, 0.5);
-        const element = this.add.dom(400, 600).createFromCache('nameform');
+        const element = this.add.dom(400, 600 ,'input', 'width: 220px; height: 100px;', 'Phaser');
         element.setPerspective(800);
         element.addListener('click');
         element.on('click', function (event)
