@@ -8,21 +8,30 @@ export class scene1 extends Phaser.Scene {
         this.additionalExecutions = 0;
         this.gameOver = false;
         this.onGround = false;
+        this.checkPointX = 0;
     }
  
     preload () {
 
-            this.load.image("piso", "./assets/floor.png");
-            this.load.image("moneda", "./assets/Iconos/puntosPositivos/Recurso28.png");
-            this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
-            this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
+        this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
+        this.load.image("word", "./assets/Iconos/puntosPositivos/Recurso28.png");
+        this.load.image("excel", "./assets/Iconos/puntosPositivos/Recurso27.png");
+        this.load.image("skype", "./assets/Iconos/puntosPositivos/Recurso15.png");
+        this.load.image("outlook", "./assets/Iconos/puntosPositivos/Recurso23.png");
+        this.load.image("note", "./assets/Iconos/puntosPositivos/Recurso25.png");
+        this.load.image("powerpoint", "./assets/Iconos/puntosPositivos/Recurso24.png");
+        this.load.image("blue-flare", "./assets/green.png")
+        this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
 
-                // creación de paredes
-            this.load.image('Floor' , "./assets/Fondo/Recurso2.png")
-            this.load.image('Background' , "./assets/Escenarios.png")
-            this.load.image('Barriers' , "./assets/Obstaculos.png")
-            this.load.image('Objects' , "./assets/Objetos.png")
-            this.load.tilemapTiledJSON('tilemap', "./assets/Background.json")
+
+        // tiled
+        // se cargan las imagenes con las cuales se realiza el proyecto en tiled
+        this.load.image('Floor' , "./assets/Fondo/Recurso2.png")
+        this.load.image('Background' , "./assets/Escenarios.png")
+        this.load.image('Barriers' , "./assets/Obstaculos.png")
+        this.load.image('Objects' , "./assets/Objetos.png")
+    
+        this.load.tilemapTiledJSON('tilemap', "./assets/Background.json")
         }
 
     create () {
@@ -43,40 +52,39 @@ export class scene1 extends Phaser.Scene {
         var tileset = map.addTilesetImage('BackgroundPiso', "Floor") 
         var piso = map.createLayer("Floor" , tileset) // Se crea el piso, con el nombre de la capa asignada en tiled, "PisoTiled"
         piso.setCollisionByProperty({colision:true}) // Se activa la propiedad que brindamos a los bloques en tiled
+        
+
+        // creación de paredes
         var tileset2 = map.addTilesetImage('Background', "Background")
         var pared = map.createLayer("Background" , tileset2)
-        
+
+        // creacion columnas
         var tileset4 = map.addTilesetImage('Barriers', "Barriers")
-        var columnas = map.createLayer("Barriers" , tileset4)
+        var obstaculos = map.createLayer("Barriers" , tileset4)
+        obstaculos.setCollisionByProperty({colision:true})
 
         var tileset4 = map.addTilesetImage('Objects', "Objects")
-        var columnas = map.createLayer("Objects" , tileset4)
+        var objetos = map.createLayer("Objects" , tileset4)
 
+        this.monedero = this.physics.add.group()
+        this.monedero.create(200, 940, "skype");
+        this.monedero.create(500, 940, "word");
+        this.monedero.create(1000, 940, "note");
+        this.monedero.create(1500, 940, "skype");
+        this.monedero.create(2375, 500, "skype").setScale(1);
+        this.monedero.create(2750, 940, "powerpoint");
+        this.monedero.create(3100, 940, "word");
+        this.monedero.create(3500, 940, "note");
+        this.monedero.create(3950, 500, "outlook");   
+        this.monedero.children.iterate(function(monedas) {
+            monedas.setScale(1.5);   
+        });
 
 
 
         this.anonymous = this.physics.add.group();
 
        // this.physics.world.setBoundsCollision(true, true, false, true);
-
-        
-        // --------- Sistema de monedas ---------//
-   
-        this.monedero = this.physics.add.group({ 
-            key:"moneda",
-            repeat: 50,
-            setScale:{x:1, y: 1},
-            setXY: {x:50, y:720, stepX: 250},
-            // gravityY: 0
-        })
-                
-         this.monedero.children.iterate(function(monedas){
-            monedas.setBounce(0.2)
-            monedas.setScale(1)
-        })
-                
-                
-        // --------------------------------------// 
 
 
         //animation
@@ -98,19 +106,18 @@ export class scene1 extends Phaser.Scene {
         this.scoreText = this.add.text(100, 380, 'Score : 0', { fontSize: '45px', fill:'black'})
         // this.scoreText.setScrollFactor(1)
         //player
-        this.player = this.physics.add.sprite(750, 900, "Player")
+
+        if(this.checkPointX === 0){
+            this.player = this.physics.add.sprite(750, 900, "Player")
+        }
+        else {
+            this.player = this.physics.add.sprite(this.checkPointX, 900, "Player")
+        }
         this.player.setScale(3).setSize(16,36).setOffset(7,14)
         this.player.setCollideWorldBounds(false);
         this.player.setGravityY(250); // Ajusta el valor según tus necesidades
         this.cameras.main.startFollow(this.player);
 
-        // Función para ajustar la altura de la cámara
-        function ajustarAlturaCamara(altura) {
-            this.cameras.main.setFollowOffset(0, altura);
-        }
-
-        // Llamar a la función para establecer la altura inicial de la cámara
-        ajustarAlturaCamara.call(this, 200);
 
 // Luego, en cualquier momento en el que desees cambiar la altura de la cámara, puedes llamar a la función así:
 // ajustarAlturaCamara(alturaDeseada);
@@ -138,16 +145,55 @@ export class scene1 extends Phaser.Scene {
         this.physics.add.collider(this.anonymous, piso)
         this.physics.add.overlap(this.player, this.monedero, (player, moneda) => this.collectCoin(player,moneda))
         this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player,anonymous))
-        
+        this.physics.add.collider(obstaculos, this.monedero)
+        this.physics.add.collider(this.player, obstaculos)
 
     }
 
     update() {
-        this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
-        this.player.setVelocityX(200);
-        this.player.anims.play("caminar", true);
+    // const velocidadCamara = 200;
 
-        if (this.cursors.up.isDown && this.onGround) {
+    // // Mueve la cámara automáticamente hacia la derecha
+    // this.cameras.main.scrollX += velocidadCamara * this.time.deltaTime / 1000;
+
+    // Ajusta la altura de la cámara como lo hacías antes
+    this.ajustarAlturaCamara.call(this, 200);
+
+
+
+
+        this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
+        // this.player.setVelocityX(200);
+        // this.player.anims.play("caminar", true);
+
+        if (this.cursors.right.isDown) {
+        //     // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
+             this.player.anims.play("caminar", true);
+             this.player.setVelocityX(400);
+             this.player.setOffset(7, 14);
+    
+         } else if (this.cursors.left.isDown) {
+        //     // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
+             this.player.anims.play("caminar", true);
+             this.player.setVelocityX(100);
+             this.player.setOffset(26, 14);
+    
+         } else if (this.cursors.up.isDown && this.onGround) {
+             this.player.setVelocityY(-300);
+             this.onGround = false;
+
+         } else {
+             this.player.setVelocityX(250); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
+             this.player.anims.play("caminar", true);
+        }
+
+        if (this.cursors.up.isDown && this.onGround && this.cursors.right.isDown) {
+            // Salto
+            this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
+            this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
+        }
+
+        if (this.cursors.up.isDown && this.onGround && this.cursors.left.isDown) {
             // Salto
             this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
             this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
@@ -181,8 +227,9 @@ export class scene1 extends Phaser.Scene {
     
         negative(player, anonymous){
             anonymous.destroy()
-            this.score += -100
+            this.score += -50;
             this.scoreText.setText("Score: " + this.score);
+            this.checkPoint();
 
             if(this.score < 0){
                 this.physics.pause();
@@ -200,6 +247,13 @@ export class scene1 extends Phaser.Scene {
             this.score += 10;
             this.scoreText.setText("Score: " + this.score);
         }
+        checkPoint (){
+            this.checkPointX = this.player.x;
+        }
+
+        ajustarAlturaCamara(altura) {
+            this.cameras.main.setFollowOffset(0, altura);
+        }
 
 }
 
@@ -210,7 +264,7 @@ export class scene1 extends Phaser.Scene {
         // if (this.cursors.right.isDown) {
         //     // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
         //     this.player.anims.play("caminar", true);
-        //     this.player.setVelocityX(250);
+        //     this.player.setVelocityX(400);
         //     this.player.setOffset(7, 14);
     
         //     if (this.player.flipX === true) {
