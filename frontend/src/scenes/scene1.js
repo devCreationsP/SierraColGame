@@ -233,7 +233,6 @@ export class scene1 extends Phaser.Scene {
     
         negative(player, anonymous){
             this.soundPunch.play();
-            player.setAlpha
             anonymous.destroy()
             this.score += -20;
             player.setTint(0xff0000)
