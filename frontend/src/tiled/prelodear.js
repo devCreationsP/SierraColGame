@@ -26,7 +26,7 @@ export class prelodear extends Phaser.Scene {
 
         const preguntaText = this.add.text(
             this.cameras.main.centerX,
-            this.cameras.main.centerY - 400,
+            this.cameras.main.centerY - 200,
             'Bienvenido',
             {
                 fontSize: '24px',
@@ -67,6 +67,7 @@ export class prelodear extends Phaser.Scene {
 
                 // Obtener referencia a la escena game1
                 this.scene.start('user');
+
             });
             const graphics = this.add.graphics();
             graphics.fillStyle(0x333333, 0.1); // Color y opacidad del recuadro
