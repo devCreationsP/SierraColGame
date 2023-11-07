@@ -8,8 +8,8 @@ export class gameOver extends Phaser.Scene {
         this.load.image("gameover", "./assets/gameover.jpg")
     }
     create() {
-        const background = this.add.image(670, 300, "gameover"); // Colocar el fondo en el centro de la pantalla
-        background.setScale(0.7);
+        const background = this.add.image(1000, 400, "gameover"); // Colocar el fondo en el centro de la pantalla
+        background.setScale(0.8);
     
         this.input.on('pointerdown', function (pointer) {
             this.restartGame();
@@ -18,6 +18,6 @@ export class gameOver extends Phaser.Scene {
 
     restartGame() {
         // Cambiar a la escena 'preload'
-        this.scene.start('prelodear');
+        this.scene.start('scene1');
     }
 }   

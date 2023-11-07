@@ -5,14 +5,15 @@ export class scene1 extends Phaser.Scene {
         super ({ key: 'scene1' }); // nombre escena
         this.score = 0;
         this.scoreText;
-        this.additionalExecutions = 0;
+        this.monedero;
         this.gameOver = false;
+        this.additionalExecutions = 0;
         this.onGround = false;
         this.checkPointX = 0;
+        
     }
  
     preload () {
-
         this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
         this.load.image("word", "./assets/Iconos/puntosPositivos/Recurso28.png");
         this.load.image("excel", "./assets/Iconos/puntosPositivos/Recurso27.png");
@@ -22,6 +23,7 @@ export class scene1 extends Phaser.Scene {
         this.load.image("powerpoint", "./assets/Iconos/puntosPositivos/Recurso24.png");
         this.load.image("blue-flare", "./assets/green.png")
         this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
+        this.load.audio("soundpick", "src/sounds/mario-coin.ogg")
 
 
         // tiled
@@ -37,16 +39,11 @@ export class scene1 extends Phaser.Scene {
     create () {
 
         this.physics.world.setBounds(0, 0, 9000, 720);
-
-        // Crea un gráfico de depuración para ver las colisiones
+        
         const graphics = this.physics.world.createDebugGraphic();
 
-        // Agrega el gráfico de depuración a la escena
         this.add.existing(graphics);
-
-        // se mapea los datos del objeto map mediante el metodo addTilesetImage
-        // Los parametros se establecen con (Nombre de conjunto de patron en el software tiled, Nombre que se le asigna en el preload a la imagen )
-       
+        
         var map = this.make.tilemap({key: 'tilemap'}) // se crea el mapa como objeto, y se lo guarda en la variable map
        
         var tileset = map.addTilesetImage('BackgroundPiso', "Floor") 
@@ -80,13 +77,12 @@ export class scene1 extends Phaser.Scene {
             monedas.setScale(1.5);   
         });
 
-
-
+        
         this.anonymous = this.physics.add.group();
 
-       // this.physics.world.setBoundsCollision(true, true, false, true);
+        this.soundCoin = this.sound.add('soundpick')
 
-
+        // --------------------------------------// 
         //animation
         this.anims.create({
             key: "detenido", // nombre de la animacion
@@ -102,6 +98,7 @@ export class scene1 extends Phaser.Scene {
             repeat:-1
         });
 
+
         //Score
         this.scoreText = this.add.text(100, 380, 'Score : 0', { fontSize: '45px', fill:'black'})
         // this.scoreText.setScrollFactor(1)
@@ -113,14 +110,14 @@ export class scene1 extends Phaser.Scene {
         else {
             this.player = this.physics.add.sprite(this.checkPointX, 900, "Player")
         }
+
         this.player.setScale(3).setSize(16,36).setOffset(7,14)
         this.player.setCollideWorldBounds(false);
-        this.player.setGravityY(250); // Ajusta el valor según tus necesidades
+        this.player.setGravityY(250)
         this.cameras.main.startFollow(this.player);
 
-
-// Luego, en cualquier momento en el que desees cambiar la altura de la cámara, puedes llamar a la función así:
-// ajustarAlturaCamara(alturaDeseada);
+        // Luego, en cualquier momento en el que desees cambiar la altura de la cámara, puedes llamar a la función así:
+        // ajustarAlturaCamara(alturaDeseada);
 
         //moving
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -133,7 +130,7 @@ export class scene1 extends Phaser.Scene {
             this.onGround = true;
         });
 
-// Configurar el evento onWorldBounds para verificar si el personaje toca el piso
+    // Configurar el evento onWorldBounds para verificar si el personaje toca el piso
         this.player.body.onWorldBounds = true;
         this.player.body.world.on('worldbounds', (body) => {
         if (body.gameObject === piso) {
@@ -141,66 +138,71 @@ export class scene1 extends Phaser.Scene {
         }
         });
 
+        // collision
+
         this.physics.add.collider(piso, this.monedero)
         this.physics.add.collider(this.anonymous, piso)
-        this.physics.add.overlap(this.player, this.monedero, (player, moneda) => this.collectCoin(player,moneda))
-        this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player,anonymous))
+        this.physics.add.overlap(this.player, this.monedero,  (player, moneda) => this.collectCoin(player,moneda))
+        this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player,anonymous))   
         this.physics.add.collider(obstaculos, this.monedero)
         this.physics.add.collider(this.player, obstaculos)
+        
 
     }
 
+    
     update() {
-    // const velocidadCamara = 200;
+        // const velocidadCamara = 200;
 
-    // // Mueve la cámara automáticamente hacia la derecha
-    // this.cameras.main.scrollX += velocidadCamara * this.time.deltaTime / 1000;
+        // // Mueve la cámara automáticamente hacia la derecha
+        // this.cameras.main.scrollX += velocidadCamara * this.time.deltaTime / 1000;
 
-    // Ajusta la altura de la cámara como lo hacías antes
-    this.ajustarAlturaCamara.call(this, 200);
-
-
+        // Ajusta la altura de la cámara como lo hacías antes
+        this.ajustarAlturaCamara.call(this, 200);
 
 
-        this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
-        // this.player.setVelocityX(200);
+         this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
+        // this.player.setVelocityX(100);
         // this.player.anims.play("caminar", true);
-
+        
         if (this.cursors.right.isDown) {
-        //     // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
-             this.player.anims.play("caminar", true);
-             this.player.setVelocityX(400);
-             this.player.setOffset(7, 14);
+            // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
+            this.player.anims.play("caminar", true);
+            this.player.setVelocityX(400);
+            this.player.setOffset(7, 14);
     
-         } else if (this.cursors.left.isDown) {
-        //     // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
-             this.player.anims.play("caminar", true);
-             this.player.setVelocityX(100);
-             this.player.setOffset(26, 14);
-    
-         } else if (this.cursors.up.isDown && this.onGround) {
-             this.player.setVelocityY(-300);
-             this.onGround = false;
+            if (this.player.flipX === true) {
+                this.player.x += 55;
+            }
+            this.player.flipX = false;
+        } else if (this.cursors.left.isDown) {
+            // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
+            this.player.anims.play("caminar", true);
+            this.player.setVelocityX(100);
+            this.player.setOffset(26, 14);
+        } else if (this.cursors.up.isDown && this.onGround) {
+            this.player.setVelocityY(-300);
+            this.onGround = false;
 
-         } else {
-             this.player.setVelocityX(250); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
-             this.player.anims.play("caminar", true);
-        }
+        } else {
+            this.player.setVelocityX(250); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
+            this.player.anims.play("caminar", true);
+       }
 
-        if (this.cursors.up.isDown && this.onGround && this.cursors.right.isDown) {
-            // Salto
-            this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
-            this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
-        }
+       if (this.cursors.up.isDown && this.onGround && this.cursors.right.isDown) {
+           // Salto
+           this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
+           this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
+       }
 
-        if (this.cursors.up.isDown && this.onGround && this.cursors.left.isDown) {
-            // Salto
-            this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
-            this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
-        }
-
+       if (this.cursors.up.isDown && this.onGround && this.cursors.left.isDown) {
+           // Salto
+           this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
+           this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
+       }
+        
             // Verifica si el score es un múltiplo de 30 y está en el rango de 30 a 60
-        if (this.score >= (60 * (this.additionalExecutions + 1))) {
+        if (this.score >= (10 * (this.additionalExecutions + 1))) {
             for (var i = -1; i < this.additionalExecutions; i++) {
                 this.negativePoints();
             }
@@ -211,23 +213,25 @@ export class scene1 extends Phaser.Scene {
     }
 
         negativePoints() {
-            var x = this.player.x + 900;
+            var x = this.player.x + 400;
         
-            var y = Phaser.Math.Between(780, 880); // Asegurarse de que la altura no supere 1080
+            var y = Phaser.Math.Between(0, 1260); // Asegurarse de que la altura no supere 1080
             var anonymus = this.anonymous.create(x, y, 'anonymus');
-            anonymus.setBounce(2);
-           // anonymus.setCollideWorldBounds(true);
-            anonymus.setVelocity(Phaser.Math.Between(-750, -800), 50);
+            anonymus.setBounce(1);
+            // anonymus.setCollideWorldBounds(true);
+            anonymus.setVelocity(Phaser.Math.Between(-200, 200), 20);
         
             // Puedes configurar la duración durante la cual se muestra la imagen y luego eliminarla si lo deseas
-            this.time.delayedCall(15000, function() {
+            this.time.delayedCall(100000, function() {
                 anonymus.destroy();
             }, [], this);
+
+ 
         }
     
         negative(player, anonymous){
             anonymous.destroy()
-            this.score += -50;
+            this.score += -20;
             this.scoreText.setText("Score: " + this.score);
             this.checkPoint();
 
@@ -243,10 +247,13 @@ export class scene1 extends Phaser.Scene {
         }
     
         collectCoin (player, moneda) {
-            moneda.destroy()
+            this.soundCoin.play();
+            moneda.disableBody(true, true)
             this.score += 10;
             this.scoreText.setText("Score: " + this.score);
+  
         }
+
         checkPoint (){
             this.checkPointX = this.player.x;
         }
@@ -257,33 +264,3 @@ export class scene1 extends Phaser.Scene {
 
 }
 
-
-
-//------------------Control personaje -------------//
-
-        // if (this.cursors.right.isDown) {
-        //     // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
-        //     this.player.anims.play("caminar", true);
-        //     this.player.setVelocityX(400);
-        //     this.player.setOffset(7, 14);
-    
-        //     if (this.player.flipX === true) {
-        //         this.player.x += 55;
-        //     }
-        //     this.player.flipX = false;
-        // } else if (this.cursors.left.isDown) {
-        //     // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
-        //     this.player.anims.play("caminar", true);
-        //     this.player.setVelocityX(-250);
-        //     this.player.setOffset(26, 14);
-    
-        //     if (this.player.flipX === false) {
-        //         this.player.x -= 55;
-        //     }
-        //     this.player.flipX = true; // Reflejar la imagen hacia el lado izquierdo
-        // } else if (this.cursors.up.isDown) {
-        //     this.player.setVelocityY(-200);
-        // } else {
-        //     this.player.setVelocityX(0); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
-        //     this.player.anims.play("detenido", true);
-        // }
