@@ -8,6 +8,8 @@ export class scene1 extends Phaser.Scene {
         this.monedero;
         this.gameOver = false;
         this.additionalExecutions = 0;
+        this.onGround = false;
+        this.checkPointX = 0;
         
     }
  
@@ -38,6 +40,9 @@ export class scene1 extends Phaser.Scene {
 
         this.physics.world.setBounds(0, 0, 9000, 720);
         
+        const graphics = this.physics.world.createDebugGraphic();
+
+        this.add.existing(graphics);
         
         var map = this.make.tilemap({key: 'tilemap'}) // se crea el mapa como objeto, y se lo guarda en la variable map
        
@@ -58,8 +63,6 @@ export class scene1 extends Phaser.Scene {
         var tileset4 = map.addTilesetImage('Objects', "Objects")
         var objetos = map.createLayer("Objects" , tileset4)
 
-        
-        // --------- Sistema de monedas ---------//
         this.monedero = this.physics.add.group()
         this.monedero.create(200, 940, "skype");
         this.monedero.create(500, 940, "word");
@@ -73,8 +76,12 @@ export class scene1 extends Phaser.Scene {
         this.monedero.children.iterate(function(monedas) {
             monedas.setScale(1.5);   
         });
+
+        
         this.anonymous = this.physics.add.group();
+
         this.soundCoin = this.sound.add('soundpick')
+
         // --------------------------------------// 
         //animation
         this.anims.create({
@@ -96,21 +103,21 @@ export class scene1 extends Phaser.Scene {
         this.scoreText = this.add.text(100, 380, 'Score : 0', { fontSize: '45px', fill:'black'})
         // this.scoreText.setScrollFactor(1)
         //player
-        this.player = this.physics.add.sprite(750, 900, "Player")
-        this.player.setScale(3).setSize(16,36).setOffset(7,14)
-        this.player.setCollideWorldBounds(false);
-        this.cameras.main.startFollow(this.player);
 
-        // Función para ajustar la altura de la cámara
-        function ajustarAlturaCamara(altura) {
-            this.cameras.main.setFollowOffset(0, altura);
+        if(this.checkPointX === 0){
+            this.player = this.physics.add.sprite(750, 900, "Player")
+        }
+        else {
+            this.player = this.physics.add.sprite(this.checkPointX, 900, "Player")
         }
 
-        // Llamar a la función para establecer la altura inicial de la cámara
-        ajustarAlturaCamara.call(this, 200);
+        this.player.setScale(3).setSize(16,36).setOffset(7,14)
+        this.player.setCollideWorldBounds(false);
+        this.player.setGravityY(250)
+        this.cameras.main.startFollow(this.player);
 
-// Luego, en cualquier momento en el que desees cambiar la altura de la cámara, puedes llamar a la función así:
-// ajustarAlturaCamara(alturaDeseada);
+        // Luego, en cualquier momento en el que desees cambiar la altura de la cámara, puedes llamar a la función así:
+        // ajustarAlturaCamara(alturaDeseada);
 
         //moving
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -118,19 +125,41 @@ export class scene1 extends Phaser.Scene {
         // collision
 
         // this.physics.add.collider(this.floor, this.player)
-        this.physics.add.collider(this.player, piso)
-        this.physics.add.collider(this.player, obstaculos)
+        // Establecer colisión con el piso
+        this.physics.add.collider(this.player, piso, () => {
+            this.onGround = true;
+        });
+
+    // Configurar el evento onWorldBounds para verificar si el personaje toca el piso
+        this.player.body.onWorldBounds = true;
+        this.player.body.world.on('worldbounds', (body) => {
+        if (body.gameObject === piso) {
+            this.onGround = true;
+        }
+        });
+
+        // collision
+
         this.physics.add.collider(piso, this.monedero)
-        this.physics.add.collider(obstaculos, this.monedero)
-        this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.hitBomb(player, anonymous))
+        this.physics.add.collider(this.anonymous, piso)
         this.physics.add.overlap(this.player, this.monedero,  (player, moneda) => this.collectCoin(player,moneda))
         this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player,anonymous))   
-
+        this.physics.add.collider(obstaculos, this.monedero)
+        this.physics.add.collider(this.player, obstaculos)
+        
 
     }
 
     
     update() {
+        // const velocidadCamara = 200;
+
+        // // Mueve la cámara automáticamente hacia la derecha
+        // this.cameras.main.scrollX += velocidadCamara * this.time.deltaTime / 1000;
+
+        // Ajusta la altura de la cámara como lo hacías antes
+        this.ajustarAlturaCamara.call(this, 200);
+
 
          this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
         // this.player.setVelocityX(100);
@@ -139,7 +168,7 @@ export class scene1 extends Phaser.Scene {
         if (this.cursors.right.isDown) {
             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
             this.player.anims.play("caminar", true);
-            this.player.setVelocityX(500);
+            this.player.setVelocityX(400);
             this.player.setOffset(7, 14);
     
             if (this.player.flipX === true) {
@@ -149,21 +178,29 @@ export class scene1 extends Phaser.Scene {
         } else if (this.cursors.left.isDown) {
             // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
             this.player.anims.play("caminar", true);
-            this.player.setVelocityX(-250);
+            this.player.setVelocityX(100);
             this.player.setOffset(26, 14);
-    
-            if (this.player.flipX === false) {
-                this.player.x -= 55;
-            }
-            this.player.flipX = true; // Reflejar la imagen hacia el lado izquierdo
-        } else if (this.cursors.up.isDown) {
-            this.player.setVelocityY(-200);
+        } else if (this.cursors.up.isDown && this.onGround) {
+            this.player.setVelocityY(-300);
+            this.onGround = false;
+
         } else {
-            this.player.setVelocityX(0); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
-            this.player.anims.play("detenido", true);
-        }
+            this.player.setVelocityX(250); // No hay tecla presionada, la velocidad del personaje es 0 sobre el eje X
+            this.player.anims.play("caminar", true);
+       }
 
+       if (this.cursors.up.isDown && this.onGround && this.cursors.right.isDown) {
+           // Salto
+           this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
+           this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
+       }
 
+       if (this.cursors.up.isDown && this.onGround && this.cursors.left.isDown) {
+           // Salto
+           this.player.setVelocityY(-300); // Ajusta la velocidad del salto según tus necesidades
+           this.onGround = false; // Establece la variable en false para evitar saltos adicionales en el aire
+       }
+        
             // Verifica si el score es un múltiplo de 30 y está en el rango de 30 a 60
         if (this.score >= (10 * (this.additionalExecutions + 1))) {
             for (var i = -1; i < this.additionalExecutions; i++) {
@@ -194,8 +231,19 @@ export class scene1 extends Phaser.Scene {
     
         negative(player, anonymous){
             anonymous.destroy()
-            this.score += -50
+            this.score += -20;
             this.scoreText.setText("Score: " + this.score);
+            this.checkPoint();
+
+            if(this.score < 0){
+                this.physics.pause();
+                player.setTint(0xff0000)
+                this.gameOver = true;
+                this.score = 0;
+                this.additionalExecutions = 0;
+                this.scoreText.setText("Score: " + this.score);
+                this.scene.start('gameover');
+            }
         }
     
         collectCoin (player, moneda) {
@@ -206,16 +254,12 @@ export class scene1 extends Phaser.Scene {
   
         }
 
-        hitBomb(player, anonymus) {
-            if (!this.gameOver) {
-                // this.scene.restart('scene1')
-                this.scene.start('gameover');
-            }
-            else {
-                this.scene.start('prelodear')
-            }
-            
-            
+        checkPoint (){
+            this.checkPointX = this.player.x;
+        }
+
+        ajustarAlturaCamara(altura) {
+            this.cameras.main.setFollowOffset(0, altura);
         }
 
 }

@@ -2,19 +2,21 @@ export class user extends Phaser.Scene {
 
     constructor () {
         super ({ key: 'user' }); // nombre escena
-        
     }
 
     preload() {
-        this.load.html('nameform', 'assets/loginform.html');
+        this.load.html('nameform', './assets/loginform.html');
+        this.load.image("fondoBlanco", "./assets/fondoBlanco.png")
     }
 
     create() {
 
-        this.add.image(400, 300, 'pic')
-        var text = this.add.text(400, 200, 'Por favor, ingresa tu nombre:', { font: '24px Arial', fill: '#ffffff' });
+        const background = this.add.image(400, 300, "fondoBlanco"); // Colocar el fondo en el centro de la pantalla
+        background.setScale(2);
+    
+        var text = this.add.text(600, 100, 'Por favor, ingresa tu nombre:', { font: '24px Arial', fill: '#000000' });
         text.setOrigin(0.5, 0.5);
-        const element = this.add.dom(400, 600 ,'input', 'width: 220px; height: 100px;', 'Phaser');
+        const element = this.add.dom(900, 600).createFromCache('nameform');
         element.setPerspective(800);
         element.addListener('click');
         element.on('click', function (event)
@@ -30,20 +32,23 @@ export class user extends Phaser.Scene {
                 {
                     //  Turn off the click events
                     this.removeListener('click');
-
+                    
                     //  Tween the login form out
                     this.scene.tweens.add({ targets: element.rotate3d, x: 1, w: 90, duration: 3000, ease: 'Power3' });
-
+                    
+                    
+                    this.scene.scene.start('scene1')
                     this.scene.tweens.add({
                         targets: element, scaleX: 2, scaleY: 2, y: 700, duration: 3000, ease: 'Power3',
                         onComplete: function ()
-                        {
-                            element.setVisible(false);
-                        }
+                        {      
+                            element.setVisible(false);        
+                        }            
                     });
 
                     //  Populate the text with whatever they typed in as the username!
                     text.setText(`Welcome ${inputUsername.value}`);
+                    
                 }
                 else
                 {
@@ -53,7 +58,7 @@ export class user extends Phaser.Scene {
             }
 
         });
-
+        
         this.tweens.add({
             targets: element,
             y: 300,
