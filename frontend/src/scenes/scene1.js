@@ -24,6 +24,7 @@ export class scene1 extends Phaser.Scene {
         this.load.image("blue-flare", "./assets/green.png")
         this.load.image("anonymus" , "./assets/puntosNegativos/Recurso32.png")
         this.load.audio("soundpick", "src/sounds/mario-coin.ogg")
+        this.load.audio("soundpunch", "src/sounds/punch.ogg")
 
 
         // tiled
@@ -81,6 +82,7 @@ export class scene1 extends Phaser.Scene {
         this.anonymous = this.physics.add.group();
 
         this.soundCoin = this.sound.add('soundpick')
+        this.soundPunch = this.sound.add('soundpunch')
 
         // --------------------------------------// 
         //animation
@@ -230,14 +232,19 @@ export class scene1 extends Phaser.Scene {
         }
     
         negative(player, anonymous){
+            this.soundPunch.play();
+            player.setAlpha
             anonymous.destroy()
             this.score += -20;
+            player.setTint(0xff0000)
+            setTimeout(function() {
+                player.clearTint();
+                }, 500);
             this.scoreText.setText("Score: " + this.score);
             this.checkPoint();
 
             if(this.score < 0){
                 this.physics.pause();
-                player.setTint(0xff0000)
                 this.gameOver = true;
                 this.score = 0;
                 this.additionalExecutions = 0;
@@ -248,6 +255,10 @@ export class scene1 extends Phaser.Scene {
     
         collectCoin (player, moneda) {
             this.soundCoin.play();
+            player.setTint(0x00FF00);
+            setTimeout(function() {
+            player.clearTint();
+            }, 500);
             moneda.disableBody(true, true)
             this.score += 10;
             this.scoreText.setText("Score: " + this.score);
