@@ -29,10 +29,10 @@ export class user extends Phaser.Scene {
         element.on('click', function (event)
         {
             if(event.target.name === 'forgot'){
-                // const clickLink = this.getChildByName('forgot')
-                this.removeListener('click2');
                 
-                // this.scene.tweens.add({ targets: element.rotate3d, x: 1, w: 90, duration: 3000, ease: 'Power3' });
+                // this.removeListener('click2');
+                
+                this.scene.tweens.add({ targets: element.rotate3d, x: 1, w: 90, duration: 3000, ease: 'Power3' });
 
                 this.scene.tweens.add({
                     targets: element2, scaleX: 1, scaleY: 1, y: 350, duration: 2000, ease: 'Power3',
@@ -42,7 +42,13 @@ export class user extends Phaser.Scene {
                     }            
                 });
                 this.scene.tweens.add({ targets: element.rotate3d, x: 1, w: 90, duration: 2000, ease: 'Power3' });
+                 
             }
+
+            if(event.target.name === "buttonRecover"){
+                this.scene.tweens.add({ targets: element.rotate3d, x: 1, w: 90, duration: 2000, ease: 'Power3' });
+             }
+
 
             if (event.target.name === 'loginButton')
             {
