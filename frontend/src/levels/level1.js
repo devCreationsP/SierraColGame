@@ -2,6 +2,7 @@ import { prelodear } from "../tiled/prelodear.js";
 import { scene1 } from "../scenes/scene1.js";
 import { gameOver} from "../scenes/gameOver.js"
 import { user } from "../scenes/user.js"; 
+import { registro } from "../scenes/registro.js";
 
 // mode: Phaser.Scale.ScaleModes.RESIZE,// autoCenter: Phaser.Scale.CENTER_BOTH,
 const config = {
@@ -13,7 +14,7 @@ const config = {
         height: 1280 },
     dom: {createContainer: true},
     parent: document.body,
-    scene: [prelodear, user , scene1 , gameOver],
+    scene: [prelodear, registro , user , scene1 , gameOver],
     physics: {default: 'arcade', arcade: {gravity: { y: 200 },debug: true}}
 };
 const game = new Phaser.Game(config);

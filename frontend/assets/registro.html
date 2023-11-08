@@ -1,0 +1,108 @@
+<style>
+    .registration {
+      background: rgb(50, 53, 104);
+      color: #000000;
+      border: 1px solid #42464b;
+      border-radius: 6px;
+      height: 450px;
+      margin: 20px auto 0;
+      width: 298px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+  
+    .registration h1 {
+      background-image: linear-gradient(top, #f1f3f3, #d4dae0);
+      border-bottom: 1px solid #a6abaf;
+      border-radius: 6px 6px 0 0;
+      color: #000000;
+      display: block;
+      font: 600 14px/1 'Open Sans', sans-serif;
+      height: 43px;
+      line-height: 43px;
+      text-align: center;
+      margin: 0;
+    }
+
+    input[type="text"], input[type="password"], select, input[type="date"] {
+      background: linear-gradient(top, #d6d7d7, #dee0e0);
+      border: 1px solid #a1a3a3;
+      border-radius: 4px;
+      box-shadow: 0 1px #fff;
+      box-sizing: border-box;
+      color: #000000;
+      height: 39px;
+      margin: 10px 0;
+      padding-left: 10px;
+      width: 90%;
+      margin-left: 15px;
+    }
+  
+    input[type="submit"] {
+      width: 90%;
+      height: 35px;
+      display: block;
+      font-family: Arial, "Helvetica", sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 1px 1px 0px #37a69b;
+      padding-top: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #37a69b;
+      background-image: linear-gradient(top, #3db0a6, #3111);
+      border-radius: 5px;
+      box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+      margin-left: 15px;
+    }
+  
+    .shadow {
+      background: #000;
+      border-radius: 12px 12px 4px 4px;
+      box-shadow: 0 0 20px 10px #000;
+      height: 12px;
+      margin: 30px auto;
+      opacity: 0.2;
+      width: 270px;
+    }
+    .inline-group {
+    display: flex;
+    align-items: center;
+    }
+
+    .inline-group select,
+    .inline-group input[type="date"] {
+        margin-right: 10px; /* Ajusta el espaciado entre los elementos según tu preferencia */
+    }
+  </style>
+  
+  <div class="registration">
+        <h1>Registro</h1>
+        <input type="text" placeholder="Nombre Completo" class="input-text" id="nombreCompleto" name="nombreCompleto">
+        <input type="password" placeholder="Contraseña" class="input-password" id="password" name="password">
+        
+        <div class="inline-group">
+            <select id="sexo" name="sexo">
+                <option id="option">Sexo</option>
+                <option value="femenino">Femenino</option>
+                <option value="masculino">Masculino</option>
+            </select>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+        </div>
+        
+        <select id="preguntaSecreta" name="preguntaSecreta">
+            <option id="option">Pregunta Secreta</option>
+            <option value="zodiacal">Signo Zodiacal</option>
+            <option value="direccion">Dirección</option>
+            <option value="fechaNacimiento">Fecha de Nacimiento (string)</option>
+            <option value="mascota">Nombre de Mascota</option>
+        </select>
+        <input type="text" placeholder="Respuesta" id="respuestaSecreta" name="respuestaSecreta">
+        <input type="submit" value="Registrarse" name="registerButton">
+    </div>
+  <div class="shadow"></div>
