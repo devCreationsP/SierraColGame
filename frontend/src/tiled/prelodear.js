@@ -66,7 +66,7 @@ export class prelodear extends Phaser.Scene {
                 opcionText.setColor('#00ff00'); // Cambiar a verde (#00ff00)
 
                 // Obtener referencia a la escena game1
-                this.scene.start('user');
+                this.scene.start('registro');
 
             });
             const graphics = this.add.graphics();
