@@ -1,3 +1,4 @@
+import { sceneEvento1 } from "../scenes/sceneEvento1.js";
 
 export class scene1 extends Phaser.Scene {
 
@@ -10,7 +11,7 @@ export class scene1 extends Phaser.Scene {
         this.additionalExecutions = 0;
         this.onGround = false;
         this.checkPointX = 0;
-
+        this.sceneEventoLaunched = false;
     }
 
     preload() {
@@ -39,6 +40,11 @@ export class scene1 extends Phaser.Scene {
     }
 
     create() {
+
+        this.events.on('sumarPuntos', (puntos) => {
+            this.score += puntos; // Suma los puntos recibidos al score
+            console.log('Score actual en escena1:', this.score);
+        });
 
         this.physics.world.setBounds(0, 0, 9000, 720);
 
@@ -153,6 +159,7 @@ export class scene1 extends Phaser.Scene {
             this.onGround = true
         })
 
+
     }
 
 
@@ -205,6 +212,12 @@ export class scene1 extends Phaser.Scene {
             this.additionalExecutions++;
         }
 
+        if (this.score === 20 && !this.sceneEvento1Launched) {
+            this.scene.switch('sceneEvento1');
+            this.sceneEvento1Launched = true; // Marca la escena como lanzada
+        }
+        
+            
 
     }
 
@@ -265,6 +278,11 @@ export class scene1 extends Phaser.Scene {
     ajustarAlturaCamara(altura) {
         this.cameras.main.setFollowOffset(0, altura);
     }
+
+        sumarPuntos(num){
+            this.score += num;
+            this.scoreText.setText("Score: " + this.score);
+        }
 
 }
 
