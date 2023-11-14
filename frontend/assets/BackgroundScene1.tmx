@@ -1191,8 +1191,6 @@
  </tileset>
  <tileset firstgid="1617" name="Barriers" tilewidth="32" tileheight="32" tilecount="1809" columns="67">
   <image source="Obstaculos.png" width="2155" height="880"/>
-<<<<<<< HEAD
-=======
   <tile id="0">
    <properties>
     <property name="colision" type="bool" value="true"/>
@@ -10238,7 +10236,6 @@
     <property name="colision" type="bool" value="true"/>
    </properties>
   </tile>
->>>>>>> 99ec5834cba73a81223ceff035a4181358167922
  </tileset>
  <tileset firstgid="3426" name="Background" tilewidth="32" tileheight="32" tilecount="5820" columns="194">
   <image source="Escenarios.png" width="6225" height="970"/>
