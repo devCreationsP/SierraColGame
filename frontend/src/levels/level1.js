@@ -14,7 +14,8 @@ const config = {
         height: 1280 },
     dom: {createContainer: true},
     parent: document.body,
-    scene: [video1,prelodear, user , scene1 , gameOver, sceneEvento1],
+    scene: [scene1 , gameOver],
+    //scene: [video1,prelodear, user , scene1 , gameOver, sceneEvento1],
     physics: {default: 'arcade', arcade: {gravity: { y: 200 },debug: true}}
 };
 const game = new Phaser.Game(config);
