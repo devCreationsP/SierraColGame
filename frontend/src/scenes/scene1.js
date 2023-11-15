@@ -16,7 +16,8 @@ export class scene1 extends Phaser.Scene {
 
     preload() {
         //    this.load.spritesheet("Player" , "./assets/jugador.png", {frameWidth: 48.3, frameHeight: 50})
-        this.load.spritesheet("Player", "./assets/prueba.png", { frameWidth: 137, frameHeight: 239 })
+        this.load.spritesheet("Player", "./assets/spritesheet.png", { frameWidth: 152.8, frameHeight: 239 })
+    //    this.load.spritesheet("PlayerJump", "./assets/spritesheetSaltar.png", { frameWidth: 141, frameHeight: 259 })
         this.load.image("word", "./assets/Iconos/puntosPositivos/Recurso28.png");
         this.load.image("excel", "./assets/Iconos/puntosPositivos/Recurso27.png");
         this.load.image("skype", "./assets/Iconos/puntosPositivos/Recurso15.png");
@@ -91,6 +92,8 @@ export class scene1 extends Phaser.Scene {
         this.soundCoin = this.sound.add('soundpick')
         this.soundPunch = this.sound.add('soundpunch')
 
+      //  this.playerJump = this.physics.add.sprite(750, 500, "PlayerJump");
+
         // --------------------------------------// 
         //animation
         this.anims.create({
@@ -107,6 +110,13 @@ export class scene1 extends Phaser.Scene {
             repeat: -1
         });
 
+      //  this.anims.create({
+      //      key: "saltar",
+      //      frames: this.anims.generateFrameNumbers("PlayerJump", { start: 1, end: 4 }),
+      //      frameRate: 10,
+      //      repeat: -1
+      //  });
+
 
         //Score
         this.scoreText = this.add.text(100, 380, 'Score : 0', { fontSize: '45px', fill: 'black' })
@@ -114,13 +124,13 @@ export class scene1 extends Phaser.Scene {
         //player
 
         if (this.checkPointX === 0) {
-            this.player = this.physics.add.sprite(750, 500, "Player")
+            this.player = this.physics.add.sprite(400, 860, "Player")
         }
         else {
             this.player = this.physics.add.sprite(this.checkPointX, 500, "Player")
         }
 
-        this.player.setScale(1).setSize(137, 239).setOffset(7, 14)
+        this.player.setScale(1).setSize(137, 239).setOffset(7, 0)
         this.player.setCollideWorldBounds(false);
         this.player.setGravityY(250)
         this.cameras.main.startFollow(this.player);
@@ -154,7 +164,7 @@ export class scene1 extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.monedero, (player, moneda) => this.collectCoin(player, moneda))
         this.physics.add.overlap(this.player, this.anonymous, (player, anonymous) => this.negative(player, anonymous))
         this.physics.add.collider(obstaculos, this.monedero)
-        
+
         this.physics.add.collider(this.player, obstaculos, () => {
             this.onGround = true
         })
@@ -181,17 +191,18 @@ export class scene1 extends Phaser.Scene {
             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
             this.player.anims.play("caminar", true);
             this.player.setVelocityX(400);
-            this.player.setOffset(7, 14);
+            this.player.setOffset(7, 0);
 
             if (this.player.flipX === true) {
                 this.player.x += 55;
             }
             this.player.flipX = false;
+
         } else if (this.cursors.left.isDown) {
             // Tecla izquierda es presionada, el personaje se desplaza a una velocidad de -100 sobre el eje X
             this.player.anims.play("caminar", true);
             this.player.setVelocityX(100);
-            this.player.setOffset(7, 14);
+            this.player.setOffset(7, 0);
         } else if (this.cursors.up.isDown && this.onGround) {
             this.player.setVelocityY(-400);
             this.onGround = false;
@@ -216,8 +227,8 @@ export class scene1 extends Phaser.Scene {
             this.scene.switch('sceneEvento1');
             this.sceneEvento1Launched = true; // Marca la escena como lanzada
         }
-        
-            
+
+
 
     }
 
@@ -279,10 +290,10 @@ export class scene1 extends Phaser.Scene {
         this.cameras.main.setFollowOffset(0, altura);
     }
 
-        sumarPuntos(num){
-            this.score += num;
-            this.scoreText.setText("Score: " + this.score);
-        }
+    sumarPuntos(num) {
+        this.score += num;
+        this.scoreText.setText("Score: " + this.score);
+    }
 
 }
 
