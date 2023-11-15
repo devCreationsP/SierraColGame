@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "BackgroundScene1.tmx",
     "expandedProjectPaths": [
     ],
     "fileStates": {
@@ -16,14 +16,36 @@
         },
         "#events": {
             "scaleInDock": 0.06
+        },
+        "BackgroundScene1.tmx": {
+            "scale": 0.11474609375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 6653.821276595745,
+                "y": 322.451063829787
+            }
+        },
+        "BackgroundScene1.tmx#Background": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#BackgroundPiso": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#Barriers": {
+            "scaleInDock": 1
+        },
+        "BackgroundScene1.tmx#Objects": {
+            "scaleInDock": 1
         }
     },
     "last.imagePath": "C:/Users/Nahu/Desktop/SierraColGame/SierraColGame/frontend/assets",
     "openFiles": [
+        "BackgroundScene1.tmx"
     ],
     "project": "events.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "BackgroundScene1.tmx"
     ],
     "tileset.embedInMap": true
 }
