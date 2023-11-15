@@ -1,0 +1,52 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Event1.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Todos los archivos (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 0.06,
+            "scaleInEditor": 1
+        },
+        "Event1.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 459,
+                "y": 94
+            }
+        },
+        "Event1.tmx#Outlook": {
+            "scaleInDock": 0.12,
+            "scaleInEditor": 1
+        },
+        "LinkedIn.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/juane/Tiled",
+    "last.imagePath": "C:/Users/juane/Downloads",
+    "lastUsedTilesetExportFilter": "Todos los archivos (*)",
+    "map.lastUsedExportFilter": "Todos los archivos (*)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "Event1.tmx"
+    ],
+    "project": "Event1.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "Event1.tmx",
+        "LinkedIn.tsx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    }
+}
