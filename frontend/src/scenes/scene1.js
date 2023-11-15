@@ -36,6 +36,7 @@ export class scene1 extends Phaser.Scene {
         this.load.image('Background', "./assets/Escenarios.png")
         this.load.image('Barriers', "./assets/Obstaculos.png")
         this.load.image('Objects', "./assets/Objetos.png")
+        this.load.image('Columna', "./assets/Columna.png")
 
         this.load.tilemapTiledJSON('tilemap', "./assets/Background.json")
     }
@@ -64,6 +65,9 @@ export class scene1 extends Phaser.Scene {
         var tileset2 = map.addTilesetImage('Background', "Background")
         var pared = map.createLayer("Background", tileset2)
 
+        var tileset2 = map.addTilesetImage('BackgroundServidores', "BackgroundServidores" )
+        var servidores = map.createLayer("BackgroundServidores", tileset2)
+
         // creacion columnas
         var tileset4 = map.addTilesetImage('Barriers', "Barriers")
         var obstaculos = map.createLayer("Barriers", tileset4)
@@ -71,6 +75,9 @@ export class scene1 extends Phaser.Scene {
 
         var tileset4 = map.addTilesetImage('Objects', "Objects")
         var objetos = map.createLayer("Objects", tileset4)
+
+        var tileset4 = map.addTilesetImage('Columna', "Columna")
+        var columnas = map.createLayer("Columna", tileset4)
 
         this.monedero = this.physics.add.group()
         this.monedero.create(200, 940, "skype");
@@ -133,7 +140,10 @@ export class scene1 extends Phaser.Scene {
         this.player.setScale(1).setSize(137, 239).setOffset(7, 0)
         this.player.setCollideWorldBounds(false);
         this.player.setGravityY(250)
-        this.cameras.main.startFollow(this.player);
+        //this.cameras.main.startFollow(this.player);
+
+        //Cámara
+        this.velocidadCamara = 5;
 
         // Luego, en cualquier momento en el que desees cambiar la altura de la cámara, puedes llamar a la función así:
         // ajustarAlturaCamara(alturaDeseada);
@@ -180,8 +190,10 @@ export class scene1 extends Phaser.Scene {
         // this.cameras.main.scrollX += velocidadCamara * this.time.deltaTime / 1000;
 
         // Ajusta la altura de la cámara como lo hacías antes
-        this.ajustarAlturaCamara.call(this, 200);
+       // this.ajustarAlturaCamara.call(this, 200);
 
+       //Cámara
+       this.cameras.main.scrollX += this.velocidadCamara;
 
         this.scoreText.x = this.player.x - 500; // 16 es el margen izquierdo
         // this.player.setVelocityX(100);
@@ -190,7 +202,7 @@ export class scene1 extends Phaser.Scene {
         if (this.cursors.right.isDown) {
             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
             this.player.anims.play("caminar", true);
-            this.player.setVelocityX(400);
+            this.player.setVelocityX(800);
             this.player.setOffset(7, 0);
 
             if (this.player.flipX === true) {
