@@ -3,7 +3,7 @@ import { sceneEvento1 } from "../scenes/sceneEvento1.js";
 export class scene1 extends Phaser.Scene {
 
     constructor() {
-        super({ key: 'scene1' }); // nombre escena
+        super({ key: 'scene1' }); 
         this.score = 0;
         this.scoreText;
         this.monedero;

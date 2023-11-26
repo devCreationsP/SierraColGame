@@ -19,6 +19,11 @@ const config = {
     physics: {default: 'arcade', arcade: {gravity: { y: 200 },debug: true}}
 };
 const game = new Phaser.Game(config);
+
+window.addEventListener('resize', function () {
+    game.resize(window.innerWidth, window.innerHeight);
+});
+
 class level1 extends Phaser.Scene {
     preload() {
         // ...

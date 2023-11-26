@@ -5,7 +5,7 @@ export class gameOver extends Phaser.Scene {
         
     }
     preload() {
-        this.load.image("gameover", "./assets/gameover.jpg")
+        this.load.image("gameover", "./assets/GameOber.png")
     }
     create() {
         const background = this.add.image(1000, 400, "gameover"); // Colocar el fondo en el centro de la pantalla
