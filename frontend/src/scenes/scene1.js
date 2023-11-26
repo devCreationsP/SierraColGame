@@ -37,6 +37,7 @@ export class scene1 extends Phaser.Scene {
         this.load.image('Barriers', "./assets/Obstaculos.png")
         this.load.image('Objects', "./assets/Objetos.png")
         this.load.image('Columna', "./assets/Columna.png")
+        this.load.image('Cuadros', "./assets/Cuadros.png")
 
         this.load.tilemapTiledJSON('tilemap', "./assets/Background.json")
     }
@@ -78,6 +79,9 @@ export class scene1 extends Phaser.Scene {
 
         var tileset4 = map.addTilesetImage('Columna', "Columna")
         var columnas = map.createLayer("Columna", tileset4)
+
+        var tileset3 = map.addTilesetImage('Cuadros', 'Cuadros')
+        var cuadros= map.createLayer("Cuadros", tileset3)
 
         this.monedero = this.physics.add.group()
         this.monedero.create(200, 940, "skype");
@@ -202,7 +206,7 @@ export class scene1 extends Phaser.Scene {
         if (this.cursors.right.isDown) {
             // Tecla derecha es presionada, el personaje se desplaza a una velocidad de 250 sobre el eje X
             this.player.anims.play("caminar", true);
-            this.player.setVelocityX(800);
+            this.player.setVelocityX(450);
             this.player.setOffset(7, 0);
 
             if (this.player.flipX === true) {
